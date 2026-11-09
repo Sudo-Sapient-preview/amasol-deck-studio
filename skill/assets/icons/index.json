@@ -1,0 +1,1169 @@
+[
+ {
+  "file": "icons/chevron-right.png",
+  "name": "chevron-right",
+  "guide_slide": 12,
+  "row": 1,
+  "col": 1,
+  "px": [
+   128,
+   128
+  ]
+ },
+ {
+  "file": "icons/chevron-left.png",
+  "name": "chevron-left",
+  "guide_slide": 12,
+  "row": 1,
+  "col": 2,
+  "px": [
+   128,
+   128
+  ]
+ },
+ {
+  "file": "icons/chevrons-right.png",
+  "name": "chevrons-right",
+  "guide_slide": 12,
+  "row": 1,
+  "col": 3,
+  "px": [
+   128,
+   128
+  ]
+ },
+ {
+  "file": "icons/chevrons-left.png",
+  "name": "chevrons-left",
+  "guide_slide": 12,
+  "row": 1,
+  "col": 4,
+  "px": [
+   128,
+   128
+  ]
+ },
+ {
+  "file": "icons/check.png",
+  "name": "check",
+  "guide_slide": 12,
+  "row": 1,
+  "col": 5,
+  "px": [
+   128,
+   128
+  ]
+ },
+ {
+  "file": "icons/arrow-left.png",
+  "name": "arrow-left",
+  "guide_slide": 12,
+  "row": 1,
+  "col": 6,
+  "px": [
+   128,
+   128
+  ]
+ },
+ {
+  "file": "icons/arrow-right.png",
+  "name": "arrow-right",
+  "guide_slide": 12,
+  "row": 1,
+  "col": 7,
+  "px": [
+   128,
+   128
+  ]
+ },
+ {
+  "file": "icons/user.png",
+  "name": "user",
+  "guide_slide": 12,
+  "row": 1,
+  "col": 8,
+  "px": [
+   128,
+   128
+  ]
+ },
+ {
+  "file": "icons/users.png",
+  "name": "users",
+  "guide_slide": 12,
+  "row": 1,
+  "col": 9,
+  "px": [
+   128,
+   128
+  ]
+ },
+ {
+  "file": "icons/team.png",
+  "name": "team",
+  "guide_slide": 12,
+  "row": 1,
+  "col": 10,
+  "px": [
+   128,
+   128
+  ]
+ },
+ {
+  "file": "icons/audience-gear.png",
+  "name": "audience-gear",
+  "guide_slide": 12,
+  "row": 1,
+  "col": 11,
+  "px": [
+   128,
+   128
+  ]
+ },
+ {
+  "file": "icons/user-signal.png",
+  "name": "user-signal",
+  "guide_slide": 12,
+  "row": 2,
+  "col": 1,
+  "px": [
+   128,
+   128
+  ]
+ },
+ {
+  "file": "icons/user-lock.png",
+  "name": "user-lock",
+  "guide_slide": 12,
+  "row": 2,
+  "col": 2,
+  "px": [
+   128,
+   128
+  ]
+ },
+ {
+  "file": "icons/laptop.png",
+  "name": "laptop",
+  "guide_slide": 12,
+  "row": 2,
+  "col": 3,
+  "px": [
+   128,
+   128
+  ]
+ },
+ {
+  "file": "icons/server-stack.png",
+  "name": "server-stack",
+  "guide_slide": 12,
+  "row": 2,
+  "col": 4,
+  "px": [
+   128,
+   128
+  ]
+ },
+ {
+  "file": "icons/folder.png",
+  "name": "folder",
+  "guide_slide": 12,
+  "row": 2,
+  "col": 5,
+  "px": [
+   128,
+   128
+  ]
+ },
+ {
+  "file": "icons/document.png",
+  "name": "document",
+  "guide_slide": 12,
+  "row": 2,
+  "col": 6,
+  "px": [
+   128,
+   128
+  ]
+ },
+ {
+  "file": "icons/browser-text.png",
+  "name": "browser-text",
+  "guide_slide": 12,
+  "row": 2,
+  "col": 7,
+  "px": [
+   128,
+   128
+  ]
+ },
+ {
+  "file": "icons/browser-window.png",
+  "name": "browser-window",
+  "guide_slide": 12,
+  "row": 2,
+  "col": 8,
+  "px": [
+   128,
+   128
+  ]
+ },
+ {
+  "file": "icons/briefcase-alt.png",
+  "name": "briefcase-alt",
+  "guide_slide": 12,
+  "row": 2,
+  "col": 9,
+  "px": [
+   128,
+   128
+  ],
+  "note": "hidden under the wallet tile in the guide"
+ },
+ {
+  "file": "icons/wallet.png",
+  "name": "wallet",
+  "guide_slide": 12,
+  "row": 2,
+  "col": 9,
+  "px": [
+   128,
+   128
+  ]
+ },
+ {
+  "file": "icons/monitor.png",
+  "name": "monitor",
+  "guide_slide": 12,
+  "row": 2,
+  "col": 10,
+  "px": [
+   128,
+   128
+  ]
+ },
+ {
+  "file": "icons/monitor-pulse.png",
+  "name": "monitor-pulse",
+  "guide_slide": 12,
+  "row": 2,
+  "col": 11,
+  "px": [
+   128,
+   128
+  ]
+ },
+ {
+  "file": "icons/database-sync.png",
+  "name": "database-sync",
+  "guide_slide": 12,
+  "row": 3,
+  "col": 1,
+  "px": [
+   128,
+   128
+  ]
+ },
+ {
+  "file": "icons/gear.png",
+  "name": "gear",
+  "guide_slide": 12,
+  "row": 3,
+  "col": 2,
+  "px": [
+   128,
+   128
+  ]
+ },
+ {
+  "file": "icons/award.png",
+  "name": "award",
+  "guide_slide": 12,
+  "row": 3,
+  "col": 3,
+  "px": [
+   128,
+   128
+  ]
+ },
+ {
+  "file": "icons/chat-message.png",
+  "name": "chat-message",
+  "guide_slide": 12,
+  "row": 3,
+  "col": 4,
+  "px": [
+   128,
+   128
+  ]
+ },
+ {
+  "file": "icons/lightbulb.png",
+  "name": "lightbulb",
+  "guide_slide": 12,
+  "row": 3,
+  "col": 5,
+  "px": [
+   128,
+   128
+  ]
+ },
+ {
+  "file": "icons/dollar.png",
+  "name": "dollar",
+  "guide_slide": 12,
+  "row": 3,
+  "col": 6,
+  "px": [
+   128,
+   128
+  ]
+ },
+ {
+  "file": "icons/network-devices.png",
+  "name": "network-devices",
+  "guide_slide": 12,
+  "row": 3,
+  "col": 7,
+  "px": [
+   128,
+   128
+  ]
+ },
+ {
+  "file": "icons/paperclip.png",
+  "name": "paperclip",
+  "guide_slide": 12,
+  "row": 3,
+  "col": 8,
+  "px": [
+   128,
+   128
+  ]
+ },
+ {
+  "file": "icons/web-search.png",
+  "name": "web-search",
+  "guide_slide": 12,
+  "row": 3,
+  "col": 9,
+  "px": [
+   128,
+   128
+  ]
+ },
+ {
+  "file": "icons/video-camera.png",
+  "name": "video-camera",
+  "guide_slide": 12,
+  "row": 3,
+  "col": 10,
+  "px": [
+   128,
+   128
+  ]
+ },
+ {
+  "file": "icons/unlock.png",
+  "name": "unlock",
+  "guide_slide": 12,
+  "row": 3,
+  "col": 11,
+  "px": [
+   128,
+   128
+  ]
+ },
+ {
+  "file": "icons/search.png",
+  "name": "search",
+  "guide_slide": 12,
+  "row": 4,
+  "col": 1,
+  "px": [
+   128,
+   128
+  ]
+ },
+ {
+  "file": "icons/robot.png",
+  "name": "robot",
+  "guide_slide": 12,
+  "row": 4,
+  "col": 2,
+  "px": [
+   128,
+   128
+  ]
+ },
+ {
+  "file": "icons/community-circle.png",
+  "name": "community-circle",
+  "guide_slide": 12,
+  "row": 4,
+  "col": 3,
+  "px": [
+   128,
+   128
+  ]
+ },
+ {
+  "file": "icons/keyboard.png",
+  "name": "keyboard",
+  "guide_slide": 12,
+  "row": 4,
+  "col": 4,
+  "px": [
+   128,
+   128
+  ]
+ },
+ {
+  "file": "icons/hourglass.png",
+  "name": "hourglass",
+  "guide_slide": 12,
+  "row": 4,
+  "col": 5,
+  "px": [
+   128,
+   128
+  ]
+ },
+ {
+  "file": "icons/money-network.png",
+  "name": "money-network",
+  "guide_slide": 12,
+  "row": 4,
+  "col": 6,
+  "px": [
+   128,
+   128
+  ]
+ },
+ {
+  "file": "icons/alert-circle.png",
+  "name": "alert-circle",
+  "guide_slide": 12,
+  "row": 4,
+  "col": 7,
+  "px": [
+   128,
+   128
+  ]
+ },
+ {
+  "file": "icons/headset.png",
+  "name": "headset",
+  "guide_slide": 12,
+  "row": 4,
+  "col": 8,
+  "px": [
+   128,
+   128
+  ]
+ },
+ {
+  "file": "icons/window-card.png",
+  "name": "window-card",
+  "guide_slide": 12,
+  "row": 4,
+  "col": 9,
+  "px": [
+   128,
+   128
+  ]
+ },
+ {
+  "file": "icons/history.png",
+  "name": "history",
+  "guide_slide": 12,
+  "row": 4,
+  "col": 10,
+  "px": [
+   128,
+   128
+  ]
+ },
+ {
+  "file": "icons/trash.png",
+  "name": "trash",
+  "guide_slide": 12,
+  "row": 4,
+  "col": 11,
+  "px": [
+   128,
+   128
+  ]
+ },
+ {
+  "file": "icons/clock.png",
+  "name": "clock",
+  "guide_slide": 12,
+  "row": 5,
+  "col": 1,
+  "px": [
+   128,
+   128
+  ]
+ },
+ {
+  "file": "icons/id-badge.png",
+  "name": "id-badge",
+  "guide_slide": 12,
+  "row": 5,
+  "col": 2,
+  "px": [
+   128,
+   128
+  ]
+ },
+ {
+  "file": "icons/thumbs-down.png",
+  "name": "thumbs-down",
+  "guide_slide": 12,
+  "row": 5,
+  "col": 3,
+  "px": [
+   128,
+   128
+  ]
+ },
+ {
+  "file": "icons/help-circle.png",
+  "name": "help-circle",
+  "guide_slide": 12,
+  "row": 5,
+  "col": 4,
+  "px": [
+   128,
+   128
+  ]
+ },
+ {
+  "file": "icons/cloud-transfer.png",
+  "name": "cloud-transfer",
+  "guide_slide": 12,
+  "row": 5,
+  "col": 5,
+  "px": [
+   128,
+   128
+  ]
+ },
+ {
+  "file": "icons/download.png",
+  "name": "download",
+  "guide_slide": 12,
+  "row": 5,
+  "col": 6,
+  "px": [
+   128,
+   128
+  ]
+ },
+ {
+  "file": "icons/trophy.png",
+  "name": "trophy",
+  "guide_slide": 12,
+  "row": 5,
+  "col": 7,
+  "px": [
+   128,
+   128
+  ]
+ },
+ {
+  "file": "icons/bell.png",
+  "name": "bell",
+  "guide_slide": 12,
+  "row": 5,
+  "col": 8,
+  "px": [
+   128,
+   128
+  ]
+ },
+ {
+  "file": "icons/workflow.png",
+  "name": "workflow",
+  "guide_slide": 12,
+  "row": 5,
+  "col": 9,
+  "px": [
+   128,
+   128
+  ]
+ },
+ {
+  "file": "icons/time-list.png",
+  "name": "time-list",
+  "guide_slide": 12,
+  "row": 5,
+  "col": 10,
+  "px": [
+   128,
+   128
+  ]
+ },
+ {
+  "file": "icons/target.png",
+  "name": "target",
+  "guide_slide": 12,
+  "row": 5,
+  "col": 11,
+  "px": [
+   128,
+   128
+  ]
+ },
+ {
+  "file": "icons/calendar.png",
+  "name": "calendar",
+  "guide_slide": 13,
+  "row": 1,
+  "col": 1,
+  "px": [
+   128,
+   128
+  ]
+ },
+ {
+  "file": "icons/cloud-network.png",
+  "name": "cloud-network",
+  "guide_slide": 13,
+  "row": 1,
+  "col": 2,
+  "px": [
+   128,
+   128
+  ]
+ },
+ {
+  "file": "icons/bar-chart.png",
+  "name": "bar-chart",
+  "guide_slide": 13,
+  "row": 1,
+  "col": 3,
+  "px": [
+   128,
+   128
+  ]
+ },
+ {
+  "file": "icons/tablet.png",
+  "name": "tablet",
+  "guide_slide": 13,
+  "row": 1,
+  "col": 4,
+  "px": [
+   128,
+   128
+  ]
+ },
+ {
+  "file": "icons/shopping-cart.png",
+  "name": "shopping-cart",
+  "guide_slide": 13,
+  "row": 1,
+  "col": 5,
+  "px": [
+   128,
+   128
+  ]
+ },
+ {
+  "file": "icons/shield-gear.png",
+  "name": "shield-gear",
+  "guide_slide": 13,
+  "row": 1,
+  "col": 6,
+  "px": [
+   128,
+   128
+  ]
+ },
+ {
+  "file": "icons/shield-check.png",
+  "name": "shield-check",
+  "guide_slide": 13,
+  "row": 1,
+  "col": 7,
+  "px": [
+   128,
+   128
+  ]
+ },
+ {
+  "file": "icons/share.png",
+  "name": "share",
+  "guide_slide": 13,
+  "row": 1,
+  "col": 8,
+  "px": [
+   128,
+   128
+  ]
+ },
+ {
+  "file": "icons/sliders.png",
+  "name": "sliders",
+  "guide_slide": 13,
+  "row": 1,
+  "col": 9,
+  "px": [
+   128,
+   128
+  ]
+ },
+ {
+  "file": "icons/document-search.png",
+  "name": "document-search",
+  "guide_slide": 13,
+  "row": 1,
+  "col": 10,
+  "px": [
+   128,
+   128
+  ]
+ },
+ {
+  "file": "icons/recycle.png",
+  "name": "recycle",
+  "guide_slide": 13,
+  "row": 1,
+  "col": 11,
+  "px": [
+   128,
+   128
+  ]
+ },
+ {
+  "file": "icons/warning-search.png",
+  "name": "warning-search",
+  "guide_slide": 13,
+  "row": 2,
+  "col": 1,
+  "px": [
+   128,
+   128
+  ]
+ },
+ {
+  "file": "icons/team-ideas.png",
+  "name": "team-ideas",
+  "guide_slide": 13,
+  "row": 2,
+  "col": 2,
+  "px": [
+   128,
+   128
+  ]
+ },
+ {
+  "file": "icons/piggy-bank.png",
+  "name": "piggy-bank",
+  "guide_slide": 13,
+  "row": 2,
+  "col": 3,
+  "px": [
+   128,
+   128
+  ]
+ },
+ {
+  "file": "icons/telephone-retro.png",
+  "name": "telephone-retro",
+  "guide_slide": 13,
+  "row": 2,
+  "col": 4,
+  "px": [
+   128,
+   128
+  ]
+ },
+ {
+  "file": "icons/phone.png",
+  "name": "phone",
+  "guide_slide": 13,
+  "row": 2,
+  "col": 5,
+  "px": [
+   128,
+   128
+  ]
+ },
+ {
+  "file": "icons/sticky-note.png",
+  "name": "sticky-note",
+  "guide_slide": 13,
+  "row": 2,
+  "col": 6,
+  "px": [
+   128,
+   128
+  ]
+ },
+ {
+  "file": "icons/smartphone.png",
+  "name": "smartphone",
+  "guide_slide": 13,
+  "row": 2,
+  "col": 7,
+  "px": [
+   128,
+   128
+  ]
+ },
+ {
+  "file": "icons/report-view.png",
+  "name": "report-view",
+  "guide_slide": 13,
+  "row": 2,
+  "col": 8,
+  "px": [
+   128,
+   128
+  ]
+ },
+ {
+  "file": "icons/sync-gear.png",
+  "name": "sync-gear",
+  "guide_slide": 13,
+  "row": 2,
+  "col": 9,
+  "px": [
+   128,
+   128
+  ]
+ },
+ {
+  "file": "icons/user-settings.png",
+  "name": "user-settings",
+  "guide_slide": 13,
+  "row": 2,
+  "col": 10,
+  "px": [
+   128,
+   128
+  ]
+ },
+ {
+  "file": "icons/menu.png",
+  "name": "menu",
+  "guide_slide": 13,
+  "row": 2,
+  "col": 11,
+  "px": [
+   128,
+   128
+  ]
+ },
+ {
+  "file": "icons/dashboard-analytics.png",
+  "name": "dashboard-analytics",
+  "guide_slide": 13,
+  "row": 3,
+  "col": 1,
+  "px": [
+   512,
+   512
+  ]
+ },
+ {
+  "file": "icons/location-pin.png",
+  "name": "location-pin",
+  "guide_slide": 13,
+  "row": 3,
+  "col": 2,
+  "px": [
+   128,
+   128
+  ]
+ },
+ {
+  "file": "icons/more-vertical.png",
+  "name": "more-vertical",
+  "guide_slide": 13,
+  "row": 3,
+  "col": 3,
+  "px": [
+   128,
+   128
+  ]
+ },
+ {
+  "file": "icons/unlock-alt.png",
+  "name": "unlock-alt",
+  "guide_slide": 13,
+  "row": 3,
+  "col": 4,
+  "px": [
+   128,
+   128
+  ]
+ },
+ {
+  "file": "icons/lock.png",
+  "name": "lock",
+  "guide_slide": 13,
+  "row": 3,
+  "col": 5,
+  "px": [
+   128,
+   128
+  ]
+ },
+ {
+  "file": "icons/list-bullets.png",
+  "name": "list-bullets",
+  "guide_slide": 13,
+  "row": 3,
+  "col": 6,
+  "px": [
+   128,
+   128
+  ]
+ },
+ {
+  "file": "icons/checklist.png",
+  "name": "checklist",
+  "guide_slide": 13,
+  "row": 3,
+  "col": 7,
+  "px": [
+   128,
+   128
+  ]
+ },
+ {
+  "file": "icons/layers.png",
+  "name": "layers",
+  "guide_slide": 13,
+  "row": 3,
+  "col": 8,
+  "px": [
+   128,
+   128
+  ]
+ },
+ {
+  "file": "icons/cloud-sync.png",
+  "name": "cloud-sync",
+  "guide_slide": 13,
+  "row": 3,
+  "col": 9,
+  "px": [
+   128,
+   128
+  ]
+ },
+ {
+  "file": "icons/message-text.png",
+  "name": "message-text",
+  "guide_slide": 13,
+  "row": 3,
+  "col": 10,
+  "px": [
+   128,
+   128
+  ]
+ },
+ {
+  "file": "icons/clock-alt.png",
+  "name": "clock-alt",
+  "guide_slide": 13,
+  "row": 3,
+  "col": 11,
+  "px": [
+   128,
+   128
+  ]
+ },
+ {
+  "file": "icons/devices.png",
+  "name": "devices",
+  "guide_slide": 13,
+  "row": 4,
+  "col": 1,
+  "px": [
+   128,
+   128
+  ]
+ },
+ {
+  "file": "icons/dollar-alt.png",
+  "name": "dollar-alt",
+  "guide_slide": 13,
+  "row": 4,
+  "col": 2,
+  "px": [
+   128,
+   128
+  ]
+ },
+ {
+  "file": "icons/bell-alt.png",
+  "name": "bell-alt",
+  "guide_slide": 13,
+  "row": 4,
+  "col": 3,
+  "px": [
+   128,
+   128
+  ]
+ },
+ {
+  "file": "icons/laptop-alt.png",
+  "name": "laptop-alt",
+  "guide_slide": 13,
+  "row": 4,
+  "col": 4,
+  "px": [
+   128,
+   128
+  ]
+ },
+ {
+  "file": "icons/hand-crown.png",
+  "name": "hand-crown",
+  "guide_slide": 13,
+  "row": 4,
+  "col": 5,
+  "px": [
+   128,
+   128
+  ]
+ },
+ {
+  "file": "icons/keyboard-alt.png",
+  "name": "keyboard-alt",
+  "guide_slide": 13,
+  "row": 4,
+  "col": 6,
+  "px": [
+   128,
+   128
+  ]
+ },
+ {
+  "file": "icons/monitor-gear.png",
+  "name": "monitor-gear",
+  "guide_slide": 13,
+  "row": 4,
+  "col": 7,
+  "px": [
+   128,
+   128
+  ]
+ },
+ {
+  "file": "icons/meeting-discussion.png",
+  "name": "meeting-discussion",
+  "guide_slide": 13,
+  "row": 4,
+  "col": 8,
+  "px": [
+   128,
+   128
+  ]
+ },
+ {
+  "file": "icons/megaphone.png",
+  "name": "megaphone",
+  "guide_slide": 13,
+  "row": 4,
+  "col": 9,
+  "px": [
+   128,
+   128
+  ]
+ },
+ {
+  "file": "icons/briefcase.png",
+  "name": "briefcase",
+  "guide_slide": 13,
+  "row": 4,
+  "col": 10,
+  "px": [
+   128,
+   128
+  ]
+ },
+ {
+  "file": "icons/help-circle-alt.png",
+  "name": "help-circle-alt",
+  "guide_slide": 13,
+  "row": 4,
+  "col": 11,
+  "px": [
+   128,
+   128
+  ]
+ },
+ {
+  "file": "icons/rating-thumbs-up.png",
+  "name": "rating-thumbs-up",
+  "guide_slide": 13,
+  "row": 5,
+  "col": 1,
+  "px": [
+   128,
+   128
+  ]
+ },
+ {
+  "file": "icons/network-gear.png",
+  "name": "network-gear",
+  "guide_slide": 13,
+  "row": 5,
+  "col": 2,
+  "px": [
+   128,
+   128
+  ]
+ },
+ {
+  "file": "icons/analytics-gears.png",
+  "name": "analytics-gears",
+  "guide_slide": 13,
+  "row": 5,
+  "col": 3,
+  "px": [
+   512,
+   512
+  ]
+ },
+ {
+  "file": "icons/atom-person.png",
+  "name": "atom-person",
+  "guide_slide": 13,
+  "row": 5,
+  "col": 4,
+  "px": [
+   512,
+   512
+  ]
+ },
+ {
+  "file": "icons/online-meeting.png",
+  "name": "online-meeting",
+  "guide_slide": 13,
+  "row": 5,
+  "col": 5,
+  "px": [
+   128,
+   128
+  ]
+ },
+ {
+  "file": "icons/hierarchy-gear.png",
+  "name": "hierarchy-gear",
+  "guide_slide": 13,
+  "row": 5,
+  "col": 6,
+  "px": [
+   128,
+   128
+  ]
+ }
+]

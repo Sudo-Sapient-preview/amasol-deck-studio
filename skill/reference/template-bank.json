@@ -1,0 +1,5236 @@
+{
+ "schema": "sgdeck-template-bank/2",
+ "template": "template.pptx",
+ "layouts": [
+  {
+   "index": 0,
+   "name": "Titelfolie mit Bild",
+   "role": "cover",
+   "family": "Grau",
+   "background": "#EBEAE2",
+   "counts_as_content_background": false,
+   "purpose": "Deck opener over a full-bleed photo (black 48 pt title).",
+   "suits_purpose": [],
+   "suits_visual_hint": [],
+   "signals": [
+    "deck title + date/author",
+    "a user-supplied photo with clear rights"
+   ],
+   "visuals": [
+    "picture"
+   ],
+   "rank": 1,
+   "form_tab": false,
+   "picture": "full",
+   "chart_placeholder": false,
+   "columns": 1,
+   "placeholders": [
+    {
+     "idx": 10,
+     "type": "picture",
+     "side": "full",
+     "in": [
+      0.0,
+      0.0,
+      10.0,
+      5.625
+     ]
+    },
+    {
+     "idx": 0,
+     "type": "center_title",
+     "side": "full",
+     "in": [
+      0.432,
+      1.669,
+      9.135,
+      1.616
+     ],
+     "pt": 48.0,
+     "chars_per_line": 26,
+     "lines": 2,
+     "max_chars": 52,
+     "one_line_bullets": null
+    },
+    {
+     "idx": 1,
+     "type": "subtitle",
+     "side": "full",
+     "in": [
+      0.432,
+      3.479,
+      9.135,
+      0.236
+     ],
+     "pt": 14.0,
+     "chars_per_line": 92,
+     "lines": 6,
+     "max_chars": 552,
+     "one_line_bullets": null
+    }
+   ],
+   "guide_examples": [
+    "reference/guide-slides/slide-01.jpg",
+    "reference/guide-slides/slide-14.jpg"
+   ]
+  },
+  {
+   "index": 1,
+   "name": "Titelfolie ohne Bild",
+   "role": "cover",
+   "family": "Rosa",
+   "background": "#F5E1EA",
+   "counts_as_content_background": false,
+   "purpose": "Deck opener on pink without a photo (blue 48 pt title) - the default cover.",
+   "suits_purpose": [],
+   "suits_visual_hint": [],
+   "signals": [
+    "deck title + date/author",
+    "no licensed photo"
+   ],
+   "visuals": [],
+   "rank": 0,
+   "form_tab": false,
+   "picture": null,
+   "chart_placeholder": false,
+   "columns": 1,
+   "placeholders": [
+    {
+     "idx": 0,
+     "type": "center_title",
+     "side": "full",
+     "in": [
+      0.432,
+      2.257,
+      9.135,
+      1.616
+     ],
+     "pt": 48.0,
+     "chars_per_line": 26,
+     "lines": 2,
+     "max_chars": 52,
+     "one_line_bullets": null
+    },
+    {
+     "idx": 1,
+     "type": "subtitle",
+     "side": "full",
+     "in": [
+      0.432,
+      4.068,
+      9.135,
+      0.236
+     ],
+     "pt": 14.0,
+     "chars_per_line": 92,
+     "lines": 4,
+     "max_chars": 368,
+     "one_line_bullets": null
+    }
+   ],
+   "guide_examples": [
+    "reference/guide-slides/slide-15.jpg"
+   ]
+  },
+  {
+   "index": 2,
+   "name": "Agenda",
+   "role": "agenda",
+   "family": "Grau",
+   "background": "#EBEAE2",
+   "counts_as_content_background": false,
+   "purpose": "Red title panel + up to 8 numbered chapter slots (build-time clones Agenda 2-7).",
+   "suits_purpose": [],
+   "suits_visual_hint": [],
+   "signals": [
+    "list of chapters",
+    "decks > 5 slides"
+   ],
+   "visuals": [],
+   "rank": 0,
+   "form_tab": false,
+   "picture": null,
+   "chart_placeholder": false,
+   "columns": 1,
+   "placeholders": [
+    {
+     "idx": 0,
+     "type": "title",
+     "side": "left",
+     "in": [
+      0.432,
+      1.381,
+      2.593,
+      0.539
+     ],
+     "pt": 32.0,
+     "chars_per_line": 11,
+     "lines": 6,
+     "max_chars": 66,
+     "one_line_bullets": null
+    },
+    {
+     "idx": 12,
+     "type": "body",
+     "side": "left",
+     "in": [
+      3.675,
+      1.92,
+      0.506,
+      0.492
+     ],
+     "pt": 18.0,
+     "chars_per_line": 3,
+     "lines": 1,
+     "max_chars": 3,
+     "one_line_bullets": null
+    },
+    {
+     "idx": 13,
+     "type": "body",
+     "side": "right",
+     "in": [
+      4.34,
+      1.92,
+      2.212,
+      0.492
+     ],
+     "pt": 18.0,
+     "chars_per_line": 17,
+     "lines": 1,
+     "max_chars": 17,
+     "one_line_bullets": null
+    },
+    {
+     "idx": 16,
+     "type": "body",
+     "side": "right",
+     "in": [
+      4.34,
+      2.701,
+      2.212,
+      0.492
+     ],
+     "pt": 18.0,
+     "chars_per_line": 17,
+     "lines": 1,
+     "max_chars": 17,
+     "one_line_bullets": null
+    },
+    {
+     "idx": 19,
+     "type": "body",
+     "side": "left",
+     "in": [
+      3.675,
+      2.701,
+      0.506,
+      0.492
+     ],
+     "pt": 18.0,
+     "chars_per_line": 3,
+     "lines": 1,
+     "max_chars": 3,
+     "one_line_bullets": null
+    },
+    {
+     "idx": 20,
+     "type": "body",
+     "side": "right",
+     "in": [
+      4.34,
+      3.482,
+      2.212,
+      0.492
+     ],
+     "pt": 18.0,
+     "chars_per_line": 17,
+     "lines": 1,
+     "max_chars": 17,
+     "one_line_bullets": null
+    },
+    {
+     "idx": 23,
+     "type": "body",
+     "side": "left",
+     "in": [
+      3.675,
+      3.482,
+      0.506,
+      0.492
+     ],
+     "pt": 18.0,
+     "chars_per_line": 3,
+     "lines": 1,
+     "max_chars": 3,
+     "one_line_bullets": null
+    },
+    {
+     "idx": 24,
+     "type": "body",
+     "side": "right",
+     "in": [
+      4.34,
+      4.264,
+      2.212,
+      0.492
+     ],
+     "pt": 18.0,
+     "chars_per_line": 17,
+     "lines": 1,
+     "max_chars": 17,
+     "one_line_bullets": null
+    },
+    {
+     "idx": 27,
+     "type": "body",
+     "side": "left",
+     "in": [
+      3.675,
+      4.264,
+      0.506,
+      0.492
+     ],
+     "pt": 18.0,
+     "chars_per_line": 3,
+     "lines": 1,
+     "max_chars": 3,
+     "one_line_bullets": null
+    },
+    {
+     "idx": 28,
+     "type": "body",
+     "side": "right",
+     "in": [
+      6.691,
+      1.92,
+      0.506,
+      0.492
+     ],
+     "pt": 18.0,
+     "chars_per_line": 3,
+     "lines": 1,
+     "max_chars": 3,
+     "one_line_bullets": null
+    },
+    {
+     "idx": 29,
+     "type": "body",
+     "side": "right",
+     "in": [
+      7.356,
+      1.92,
+      2.212,
+      0.492
+     ],
+     "pt": 18.0,
+     "chars_per_line": 17,
+     "lines": 1,
+     "max_chars": 17,
+     "one_line_bullets": null
+    },
+    {
+     "idx": 30,
+     "type": "body",
+     "side": "right",
+     "in": [
+      7.356,
+      2.701,
+      2.212,
+      0.492
+     ],
+     "pt": 18.0,
+     "chars_per_line": 17,
+     "lines": 1,
+     "max_chars": 17,
+     "one_line_bullets": null
+    },
+    {
+     "idx": 31,
+     "type": "body",
+     "side": "right",
+     "in": [
+      6.691,
+      2.701,
+      0.506,
+      0.492
+     ],
+     "pt": 18.0,
+     "chars_per_line": 3,
+     "lines": 1,
+     "max_chars": 3,
+     "one_line_bullets": null
+    },
+    {
+     "idx": 32,
+     "type": "body",
+     "side": "right",
+     "in": [
+      7.356,
+      3.482,
+      2.212,
+      0.492
+     ],
+     "pt": 18.0,
+     "chars_per_line": 17,
+     "lines": 1,
+     "max_chars": 17,
+     "one_line_bullets": null
+    },
+    {
+     "idx": 33,
+     "type": "body",
+     "side": "right",
+     "in": [
+      6.691,
+      3.482,
+      0.506,
+      0.492
+     ],
+     "pt": 18.0,
+     "chars_per_line": 3,
+     "lines": 1,
+     "max_chars": 3,
+     "one_line_bullets": null
+    },
+    {
+     "idx": 34,
+     "type": "body",
+     "side": "right",
+     "in": [
+      7.356,
+      4.264,
+      2.212,
+      0.492
+     ],
+     "pt": 18.0,
+     "chars_per_line": 17,
+     "lines": 1,
+     "max_chars": 17,
+     "one_line_bullets": null
+    },
+    {
+     "idx": 35,
+     "type": "body",
+     "side": "right",
+     "in": [
+      6.691,
+      4.264,
+      0.506,
+      0.492
+     ],
+     "pt": 18.0,
+     "chars_per_line": 3,
+     "lines": 1,
+     "max_chars": 3,
+     "one_line_bullets": null
+    }
+   ],
+   "guide_examples": [
+    "reference/guide-slides/slide-16.jpg"
+   ]
+  },
+  {
+   "index": 3,
+   "name": "Kapiteltrenner - Gelb",
+   "role": "divider",
+   "family": "Gelb",
+   "background": "#FFF8DF",
+   "counts_as_content_background": false,
+   "purpose": "Section opener on cream: photo left, olive 36 pt title right.",
+   "suits_purpose": [],
+   "suits_visual_hint": [],
+   "signals": [
+    "chapter start",
+    "a user photo for each chapter"
+   ],
+   "visuals": [
+    "picture"
+   ],
+   "rank": 2,
+   "form_tab": false,
+   "picture": "left",
+   "chart_placeholder": false,
+   "columns": 1,
+   "placeholders": [
+    {
+     "idx": 10,
+     "type": "body",
+     "side": "right",
+     "in": [
+      5.078,
+      2.229,
+      4.49,
+      1.212
+     ],
+     "pt": 36.0,
+     "chars_per_line": 17,
+     "lines": 2,
+     "max_chars": 34,
+     "one_line_bullets": null
+    },
+    {
+     "idx": 11,
+     "type": "picture",
+     "side": "left",
+     "in": [
+      0.432,
+      0.372,
+      4.253,
+      4.882
+     ]
+    },
+    {
+     "idx": 13,
+     "type": "body",
+     "side": "right",
+     "in": [
+      5.078,
+      3.639,
+      4.49,
+      0.236
+     ],
+     "pt": 14.0,
+     "chars_per_line": 45,
+     "lines": 6,
+     "max_chars": 270,
+     "one_line_bullets": null
+    }
+   ],
+   "guide_examples": [
+    "reference/guide-slides/slide-17.jpg"
+   ]
+  },
+  {
+   "index": 4,
+   "name": "Kapiteltrenner - Weiß",
+   "role": "divider",
+   "family": "Weiß",
+   "background": "#FFFFFF",
+   "counts_as_content_background": false,
+   "purpose": "Section opener on white: photo left, red 36 pt title right.",
+   "suits_purpose": [],
+   "suits_visual_hint": [],
+   "signals": [
+    "chapter start",
+    "a user photo for each chapter"
+   ],
+   "visuals": [
+    "picture"
+   ],
+   "rank": 1,
+   "form_tab": false,
+   "picture": "left",
+   "chart_placeholder": false,
+   "columns": 1,
+   "placeholders": [
+    {
+     "idx": 10,
+     "type": "body",
+     "side": "right",
+     "in": [
+      5.078,
+      2.229,
+      4.49,
+      1.212
+     ],
+     "pt": 36.0,
+     "chars_per_line": 17,
+     "lines": 2,
+     "max_chars": 34,
+     "one_line_bullets": null
+    },
+    {
+     "idx": 11,
+     "type": "picture",
+     "side": "left",
+     "in": [
+      0.432,
+      0.372,
+      4.253,
+      4.882
+     ]
+    },
+    {
+     "idx": 13,
+     "type": "body",
+     "side": "right",
+     "in": [
+      5.078,
+      3.639,
+      4.49,
+      0.236
+     ],
+     "pt": 14.0,
+     "chars_per_line": 45,
+     "lines": 6,
+     "max_chars": 270,
+     "one_line_bullets": null
+    }
+   ],
+   "guide_examples": [
+    "reference/guide-slides/slide-18.jpg"
+   ]
+  },
+  {
+   "index": 5,
+   "name": "Kapiteltrenner - Blau",
+   "role": "divider",
+   "family": "Blau",
+   "background": "#D3F1F0",
+   "counts_as_content_background": false,
+   "purpose": "Section opener on mint: red title left, numbered square, panel right (chapter_panel: hero icon + one chapter fact) - the default divider.",
+   "suits_purpose": [],
+   "suits_visual_hint": [],
+   "signals": [
+    "chapter start",
+    "chapter number",
+    "one key fact or line from the chapter"
+   ],
+   "visuals": [
+    "chapter_panel",
+    "picture"
+   ],
+   "rank": 0,
+   "form_tab": false,
+   "picture": "right",
+   "chart_placeholder": false,
+   "columns": 1,
+   "placeholders": [
+    {
+     "idx": 10,
+     "type": "body",
+     "side": "left",
+     "in": [
+      0.432,
+      2.663,
+      4.844,
+      1.212
+     ],
+     "pt": 36.0,
+     "chars_per_line": 19,
+     "lines": 3,
+     "max_chars": 57,
+     "one_line_bullets": null
+    },
+    {
+     "idx": 11,
+     "type": "picture",
+     "side": "right",
+     "in": [
+      5.67,
+      1.198,
+      3.898,
+      3.898
+     ]
+    },
+    {
+     "idx": 12,
+     "type": "body",
+     "side": "right",
+     "in": [
+      8.596,
+      4.123,
+      0.767,
+      0.767
+     ],
+     "pt": 24.0,
+     "chars_per_line": 4,
+     "lines": 1,
+     "max_chars": 4,
+     "one_line_bullets": null
+    }
+   ],
+   "guide_examples": [
+    "reference/guide-slides/slide-19.jpg"
+   ]
+  },
+  {
+   "index": 6,
+   "name": "Zizat - Gelb",
+   "role": "quote",
+   "family": "Gelb",
+   "background": "#FFF8DF",
+   "counts_as_content_background": false,
+   "purpose": "Genuine quote or statement with its source, photo/panel beside it.",
+   "suits_purpose": [
+    "proof"
+   ],
+   "suits_visual_hint": [
+    "image",
+    "none"
+   ],
+   "signals": [
+    "a verbatim quote with attribution",
+    "customer testimonial"
+   ],
+   "visuals": [
+    "quote"
+   ],
+   "rank": 0,
+   "form_tab": false,
+   "picture": "left",
+   "chart_placeholder": false,
+   "columns": 1,
+   "placeholders": [
+    {
+     "idx": 10,
+     "type": "body",
+     "side": "right",
+     "in": [
+      4.724,
+      1.909,
+      4.844,
+      0.673
+     ],
+     "pt": 20.0,
+     "chars_per_line": 34,
+     "lines": 2,
+     "max_chars": 68,
+     "one_line_bullets": null
+    },
+    {
+     "idx": 13,
+     "type": "body",
+     "side": "right",
+     "in": [
+      4.724,
+      2.75,
+      4.844,
+      0.202
+     ],
+     "pt": 12.0,
+     "chars_per_line": 57,
+     "lines": 11,
+     "max_chars": 627,
+     "one_line_bullets": null
+    },
+    {
+     "idx": 11,
+     "type": "picture",
+     "side": "left",
+     "in": [
+      0.432,
+      1.198,
+      3.898,
+      3.898
+     ]
+    }
+   ],
+   "guide_examples": [
+    "reference/guide-slides/slide-20.jpg"
+   ]
+  },
+  {
+   "index": 7,
+   "name": "Zitat- Rosa",
+   "role": "quote",
+   "family": "Rosa",
+   "background": "#F5E1EA",
+   "counts_as_content_background": false,
+   "purpose": "Genuine quote or statement with its source, photo/panel beside it.",
+   "suits_purpose": [
+    "proof"
+   ],
+   "suits_visual_hint": [
+    "image",
+    "none"
+   ],
+   "signals": [
+    "a verbatim quote with attribution",
+    "customer testimonial"
+   ],
+   "visuals": [
+    "quote"
+   ],
+   "rank": 0,
+   "form_tab": false,
+   "picture": "right",
+   "chart_placeholder": false,
+   "columns": 1,
+   "placeholders": [
+    {
+     "idx": 10,
+     "type": "body",
+     "side": "left",
+     "in": [
+      0.432,
+      1.909,
+      4.844,
+      0.673
+     ],
+     "pt": 20.0,
+     "chars_per_line": 34,
+     "lines": 2,
+     "max_chars": 68,
+     "one_line_bullets": null
+    },
+    {
+     "idx": 13,
+     "type": "body",
+     "side": "left",
+     "in": [
+      0.432,
+      2.75,
+      4.844,
+      0.202
+     ],
+     "pt": 12.0,
+     "chars_per_line": 57,
+     "lines": 11,
+     "max_chars": 627,
+     "one_line_bullets": null
+    },
+    {
+     "idx": 11,
+     "type": "picture",
+     "side": "right",
+     "in": [
+      5.67,
+      1.198,
+      3.898,
+      3.898
+     ]
+    }
+   ],
+   "guide_examples": [
+    "reference/guide-slides/slide-21.jpg"
+   ]
+  },
+  {
+   "index": 8,
+   "name": "Zitat - Blau",
+   "role": "quote",
+   "family": "Blau",
+   "background": "#D3F1F0",
+   "counts_as_content_background": false,
+   "purpose": "Genuine quote or statement with its source, photo/panel beside it.",
+   "suits_purpose": [
+    "proof"
+   ],
+   "suits_visual_hint": [
+    "image",
+    "none"
+   ],
+   "signals": [
+    "a verbatim quote with attribution",
+    "customer testimonial"
+   ],
+   "visuals": [
+    "quote"
+   ],
+   "rank": 0,
+   "form_tab": false,
+   "picture": "right",
+   "chart_placeholder": false,
+   "columns": 1,
+   "placeholders": [
+    {
+     "idx": 10,
+     "type": "body",
+     "side": "left",
+     "in": [
+      0.432,
+      1.909,
+      4.844,
+      0.673
+     ],
+     "pt": 20.0,
+     "chars_per_line": 34,
+     "lines": 2,
+     "max_chars": 68,
+     "one_line_bullets": null
+    },
+    {
+     "idx": 13,
+     "type": "body",
+     "side": "left",
+     "in": [
+      0.432,
+      2.75,
+      4.844,
+      0.202
+     ],
+     "pt": 12.0,
+     "chars_per_line": 57,
+     "lines": 11,
+     "max_chars": 627,
+     "one_line_bullets": null
+    },
+    {
+     "idx": 11,
+     "type": "picture",
+     "side": "right",
+     "in": [
+      5.67,
+      1.198,
+      3.898,
+      3.898
+     ]
+    }
+   ],
+   "guide_examples": [
+    "reference/guide-slides/slide-22.jpg"
+   ]
+  },
+  {
+   "index": 9,
+   "name": "Key Slide 1",
+   "role": "key",
+   "family": "Blau",
+   "background": "#D3F1F0",
+   "counts_as_content_background": false,
+   "purpose": "Key message: headline + sub-line + 4 coloured pills (one phrase each).",
+   "suits_purpose": [
+    "summary",
+    "intro",
+    "solution",
+    "cta"
+   ],
+   "suits_visual_hint": [
+    "key-points",
+    "none",
+    "icons",
+    "key-number"
+   ],
+   "signals": [
+    "exactly 4 short points, steps or facts",
+    "one key message"
+   ],
+   "visuals": [
+    "key_slide"
+   ],
+   "rank": 0,
+   "form_tab": false,
+   "picture": null,
+   "chart_placeholder": false,
+   "columns": 1,
+   "placeholders": [
+    {
+     "idx": 10,
+     "type": "body",
+     "side": "left",
+     "in": [
+      0.432,
+      1.909,
+      5.0,
+      0.337
+     ],
+     "pt": 20.0,
+     "chars_per_line": 35,
+     "lines": 1,
+     "max_chars": 35,
+     "one_line_bullets": null
+    },
+    {
+     "idx": 13,
+     "type": "body",
+     "side": "left",
+     "in": [
+      0.432,
+      2.419,
+      5.0,
+      0.202
+     ],
+     "pt": 12.0,
+     "chars_per_line": 58,
+     "lines": 2,
+     "max_chars": 116,
+     "one_line_bullets": null
+    },
+    {
+     "idx": 14,
+     "type": "body",
+     "side": "left",
+     "in": [
+      0.432,
+      2.935,
+      2.166,
+      0.703
+     ],
+     "pt": 14.0,
+     "chars_per_line": 19,
+     "lines": 2,
+     "max_chars": 38,
+     "one_line_bullets": null
+    },
+    {
+     "idx": 16,
+     "type": "body",
+     "side": "left",
+     "in": [
+      2.756,
+      2.935,
+      2.166,
+      0.703
+     ],
+     "pt": 14.0,
+     "chars_per_line": 19,
+     "lines": 2,
+     "max_chars": 38,
+     "one_line_bullets": null
+    },
+    {
+     "idx": 17,
+     "type": "body",
+     "side": "right",
+     "in": [
+      5.079,
+      2.935,
+      2.166,
+      0.703
+     ],
+     "pt": 14.0,
+     "chars_per_line": 19,
+     "lines": 2,
+     "max_chars": 38,
+     "one_line_bullets": null
+    },
+    {
+     "idx": 18,
+     "type": "body",
+     "side": "right",
+     "in": [
+      7.402,
+      2.938,
+      2.166,
+      0.703
+     ],
+     "pt": 14.0,
+     "chars_per_line": 19,
+     "lines": 2,
+     "max_chars": 38,
+     "one_line_bullets": null
+    }
+   ],
+   "guide_examples": [
+    "reference/guide-slides/slide-23.jpg"
+   ]
+  },
+  {
+   "index": 10,
+   "name": "Key Slide 2",
+   "role": "key",
+   "family": "Gelb",
+   "background": "#FFF8DF",
+   "counts_as_content_background": false,
+   "purpose": "Key message: headline left + 6 coloured tiles (one point each).",
+   "suits_purpose": [
+    "summary",
+    "intro",
+    "solution",
+    "cta"
+   ],
+   "suits_visual_hint": [
+    "key-points",
+    "none",
+    "icons",
+    "key-number"
+   ],
+   "signals": [
+    "exactly 6 short points",
+    "one key message"
+   ],
+   "visuals": [
+    "key_slide"
+   ],
+   "rank": 0,
+   "form_tab": false,
+   "picture": null,
+   "chart_placeholder": false,
+   "columns": 1,
+   "placeholders": [
+    {
+     "idx": 10,
+     "type": "body",
+     "side": "left",
+     "in": [
+      0.432,
+      1.323,
+      2.835,
+      0.673
+     ],
+     "pt": 20.0,
+     "chars_per_line": 20,
+     "lines": 2,
+     "max_chars": 40,
+     "one_line_bullets": null
+    },
+    {
+     "idx": 13,
+     "type": "body",
+     "side": "left",
+     "in": [
+      0.432,
+      2.164,
+      2.835,
+      0.202
+     ],
+     "pt": 12.0,
+     "chars_per_line": 33,
+     "lines": 14,
+     "max_chars": 462,
+     "one_line_bullets": null
+    },
+    {
+     "idx": 14,
+     "type": "body",
+     "side": "left",
+     "in": [
+      3.661,
+      1.198,
+      1.89,
+      1.89
+     ],
+     "pt": 12.0,
+     "chars_per_line": 19,
+     "lines": 8,
+     "max_chars": 152,
+     "one_line_bullets": null
+    },
+    {
+     "idx": 16,
+     "type": "body",
+     "side": "right",
+     "in": [
+      5.67,
+      1.198,
+      1.89,
+      1.89
+     ],
+     "pt": 12.0,
+     "chars_per_line": 19,
+     "lines": 8,
+     "max_chars": 152,
+     "one_line_bullets": null
+    },
+    {
+     "idx": 17,
+     "type": "body",
+     "side": "right",
+     "in": [
+      7.678,
+      1.198,
+      1.89,
+      1.89
+     ],
+     "pt": 12.0,
+     "chars_per_line": 19,
+     "lines": 8,
+     "max_chars": 152,
+     "one_line_bullets": null
+    },
+    {
+     "idx": 18,
+     "type": "body",
+     "side": "left",
+     "in": [
+      3.661,
+      3.206,
+      1.89,
+      1.89
+     ],
+     "pt": 12.0,
+     "chars_per_line": 19,
+     "lines": 8,
+     "max_chars": 152,
+     "one_line_bullets": null
+    },
+    {
+     "idx": 19,
+     "type": "body",
+     "side": "right",
+     "in": [
+      5.67,
+      3.206,
+      1.89,
+      1.89
+     ],
+     "pt": 12.0,
+     "chars_per_line": 19,
+     "lines": 8,
+     "max_chars": 152,
+     "one_line_bullets": null
+    },
+    {
+     "idx": 20,
+     "type": "body",
+     "side": "right",
+     "in": [
+      7.678,
+      3.206,
+      1.89,
+      1.89
+     ],
+     "pt": 12.0,
+     "chars_per_line": 19,
+     "lines": 8,
+     "max_chars": 152,
+     "one_line_bullets": null
+    }
+   ],
+   "guide_examples": [
+    "reference/guide-slides/slide-24.jpg"
+   ]
+  },
+  {
+   "index": 11,
+   "name": "Inhalt & Infobox",
+   "role": "content",
+   "family": "Weiß",
+   "background": "#FFFFFF",
+   "counts_as_content_background": true,
+   "purpose": "Text left + grey info box right with heading, big red number and line.",
+   "suits_purpose": [
+    "solution",
+    "proof",
+    "data",
+    "intro",
+    "cta"
+   ],
+   "suits_visual_hint": [
+    "key-number",
+    "icons",
+    "none"
+   ],
+   "signals": [
+    "one metric + explanation",
+    "a service/offer with one key figure",
+    "single statement needing an accent"
+   ],
+   "visuals": [
+    "big_number",
+    "icon"
+   ],
+   "rank": 0,
+   "form_tab": false,
+   "picture": null,
+   "chart_placeholder": false,
+   "columns": 2,
+   "placeholders": [
+    {
+     "idx": 10,
+     "type": "body",
+     "side": "full",
+     "in": [
+      0.432,
+      0.755,
+      9.135,
+      0.202
+     ],
+     "pt": 12.0,
+     "chars_per_line": 107,
+     "lines": 2,
+     "max_chars": 214,
+     "one_line_bullets": null
+    },
+    {
+     "idx": 0,
+     "type": "title",
+     "side": "full",
+     "in": [
+      0.432,
+      0.374,
+      9.135,
+      0.303
+     ],
+     "pt": 18.0,
+     "chars_per_line": 71,
+     "lines": 1,
+     "max_chars": 71,
+     "one_line_bullets": null
+    },
+    {
+     "idx": 11,
+     "type": "object",
+     "side": "left",
+     "in": [
+      0.432,
+      1.198,
+      4.372,
+      3.898
+     ],
+     "pt": 14.0,
+     "chars_per_line": 42,
+     "lines": 16,
+     "max_chars": 672,
+     "one_line_bullets": 14
+    },
+    {
+     "idx": 15,
+     "type": "body",
+     "side": "right",
+     "in": [
+      5.392,
+      1.198,
+      4.009,
+      0.236
+     ],
+     "pt": 14.0,
+     "chars_per_line": 40,
+     "lines": 3,
+     "max_chars": 120,
+     "one_line_bullets": null
+    },
+    {
+     "idx": 16,
+     "type": "body",
+     "side": "right",
+     "in": [
+      5.392,
+      1.971,
+      4.009,
+      1.077
+     ],
+     "pt": 32.0,
+     "chars_per_line": 17,
+     "lines": 2,
+     "max_chars": 34,
+     "one_line_bullets": null
+    },
+    {
+     "idx": 17,
+     "type": "body",
+     "side": "right",
+     "in": [
+      5.392,
+      3.2,
+      4.009,
+      0.236
+     ],
+     "pt": 14.0,
+     "chars_per_line": 40,
+     "lines": 7,
+     "max_chars": 280,
+     "one_line_bullets": null
+    }
+   ],
+   "guide_examples": [
+    "reference/guide-slides/slide-25.jpg"
+   ]
+  },
+  {
+   "index": 12,
+   "name": "Inhalt - Weiß",
+   "role": "content",
+   "family": "Weiß",
+   "background": "#FFFFFF",
+   "counts_as_content_background": true,
+   "purpose": "Full-width content area: narrative bullets, table, full-width diagram.",
+   "suits_purpose": [
+    "intro",
+    "problem",
+    "solution",
+    "proof",
+    "process",
+    "comparison",
+    "data",
+    "team",
+    "summary",
+    "cta"
+   ],
+   "suits_visual_hint": [
+    "infographic",
+    "icons",
+    "table",
+    "chart",
+    "key-number",
+    "none"
+   ],
+   "signals": [
+    "narrative bullets",
+    "tabular data",
+    "full-width diagram (process, staircase, tiers, wheel, band, tile grid, fact chips)"
+   ],
+   "visuals": [
+    "icon_set",
+    "process",
+    "staircase",
+    "tiers",
+    "wheel",
+    "band",
+    "tile_grid",
+    "fact_chips",
+    "table",
+    "chart",
+    "story_panel",
+    "icon",
+    "info_box",
+    "donut",
+    "pie"
+   ],
+   "rank": 0,
+   "form_tab": false,
+   "picture": null,
+   "chart_placeholder": false,
+   "columns": 1,
+   "placeholders": [
+    {
+     "idx": 10,
+     "type": "body",
+     "side": "full",
+     "in": [
+      0.432,
+      0.755,
+      9.135,
+      0.202
+     ],
+     "pt": 12.0,
+     "chars_per_line": 107,
+     "lines": 2,
+     "max_chars": 214,
+     "one_line_bullets": null
+    },
+    {
+     "idx": 0,
+     "type": "title",
+     "side": "full",
+     "in": [
+      0.432,
+      0.374,
+      9.135,
+      0.303
+     ],
+     "pt": 18.0,
+     "chars_per_line": 71,
+     "lines": 1,
+     "max_chars": 71,
+     "one_line_bullets": null
+    },
+    {
+     "idx": 11,
+     "type": "object",
+     "side": "full",
+     "in": [
+      0.432,
+      1.198,
+      9.135,
+      3.898
+     ],
+     "pt": 14.0,
+     "chars_per_line": 90,
+     "lines": 16,
+     "max_chars": 1440,
+     "one_line_bullets": 14
+    }
+   ],
+   "guide_examples": [
+    "reference/guide-slides/slide-02.jpg",
+    "reference/guide-slides/slide-03.jpg",
+    "reference/guide-slides/slide-04.jpg",
+    "reference/guide-slides/slide-05.jpg",
+    "reference/guide-slides/slide-06.jpg",
+    "reference/guide-slides/slide-07.jpg",
+    "reference/guide-slides/slide-26.jpg",
+    "reference/guide-slides/slide-27.jpg"
+   ]
+  },
+  {
+   "index": 13,
+   "name": "2 Inhalte - Weiß",
+   "role": "content",
+   "family": "Weiß",
+   "background": "#FFFFFF",
+   "counts_as_content_background": true,
+   "purpose": "Two columns: comparison, or text beside a visual (donut, stacked chips, story).",
+   "suits_purpose": [
+    "comparison",
+    "problem",
+    "solution",
+    "proof",
+    "data",
+    "team"
+   ],
+   "suits_visual_hint": [
+    "icons",
+    "key-number",
+    "chart",
+    "infographic",
+    "none"
+   ],
+   "signals": [
+    "comparison / before-after / pros-cons",
+    "text + one visual",
+    "case story"
+   ],
+   "visuals": [
+    "icon_set",
+    "tile_grid",
+    "process",
+    "band",
+    "donut",
+    "pie",
+    "fact_chips",
+    "story_panel",
+    "chart",
+    "icon",
+    "info_box"
+   ],
+   "rank": 0,
+   "form_tab": false,
+   "picture": null,
+   "chart_placeholder": false,
+   "columns": 2,
+   "placeholders": [
+    {
+     "idx": 10,
+     "type": "body",
+     "side": "full",
+     "in": [
+      0.432,
+      0.755,
+      9.135,
+      0.202
+     ],
+     "pt": 12.0,
+     "chars_per_line": 107,
+     "lines": 2,
+     "max_chars": 214,
+     "one_line_bullets": null
+    },
+    {
+     "idx": 0,
+     "type": "title",
+     "side": "full",
+     "in": [
+      0.432,
+      0.374,
+      9.135,
+      0.303
+     ],
+     "pt": 18.0,
+     "chars_per_line": 71,
+     "lines": 1,
+     "max_chars": 71,
+     "one_line_bullets": null
+    },
+    {
+     "idx": 11,
+     "type": "object",
+     "side": "left",
+     "in": [
+      0.432,
+      1.198,
+      4.372,
+      3.898
+     ],
+     "pt": 14.0,
+     "chars_per_line": 42,
+     "lines": 16,
+     "max_chars": 672,
+     "one_line_bullets": 14
+    },
+    {
+     "idx": 12,
+     "type": "object",
+     "side": "right",
+     "in": [
+      5.196,
+      1.198,
+      4.372,
+      3.898
+     ],
+     "pt": 14.0,
+     "chars_per_line": 42,
+     "lines": 16,
+     "max_chars": 672,
+     "one_line_bullets": 14
+    }
+   ],
+   "guide_examples": []
+  },
+  {
+   "index": 14,
+   "name": "Inhalt & Form - Weiß",
+   "role": "content",
+   "family": "Weiß",
+   "background": "#FFFFFF",
+   "counts_as_content_background": true,
+   "purpose": "Full-width content with the decorative Form tab - rhythm variant of Inhalt.",
+   "suits_purpose": [
+    "intro",
+    "problem",
+    "solution",
+    "proof",
+    "process",
+    "comparison",
+    "data",
+    "team",
+    "summary",
+    "cta"
+   ],
+   "suits_visual_hint": [
+    "infographic",
+    "icons",
+    "table",
+    "chart",
+    "key-number",
+    "none"
+   ],
+   "signals": [
+    "full-width diagram",
+    "narrative bullets",
+    "slide after another full-width slide"
+   ],
+   "visuals": [
+    "icon_set",
+    "process",
+    "staircase",
+    "tiers",
+    "wheel",
+    "band",
+    "tile_grid",
+    "fact_chips",
+    "table",
+    "chart",
+    "story_panel",
+    "icon",
+    "info_box",
+    "donut",
+    "pie"
+   ],
+   "rank": 1,
+   "form_tab": true,
+   "picture": null,
+   "chart_placeholder": false,
+   "columns": 1,
+   "placeholders": [
+    {
+     "idx": 10,
+     "type": "body",
+     "side": "full",
+     "in": [
+      0.432,
+      0.755,
+      9.135,
+      0.202
+     ],
+     "pt": 12.0,
+     "chars_per_line": 107,
+     "lines": 2,
+     "max_chars": 214,
+     "one_line_bullets": null
+    },
+    {
+     "idx": 0,
+     "type": "title",
+     "side": "full",
+     "in": [
+      0.432,
+      0.374,
+      9.135,
+      0.303
+     ],
+     "pt": 18.0,
+     "chars_per_line": 71,
+     "lines": 1,
+     "max_chars": 71,
+     "one_line_bullets": null
+    },
+    {
+     "idx": 11,
+     "type": "object",
+     "side": "full",
+     "in": [
+      0.432,
+      1.198,
+      9.135,
+      3.898
+     ],
+     "pt": 14.0,
+     "chars_per_line": 90,
+     "lines": 16,
+     "max_chars": 1440,
+     "one_line_bullets": 14
+    }
+   ],
+   "guide_examples": [
+    "reference/guide-slides/slide-28.jpg"
+   ]
+  },
+  {
+   "index": 15,
+   "name": "2 Inhalte & Form - Weiß",
+   "role": "content",
+   "family": "Weiß",
+   "background": "#FFFFFF",
+   "counts_as_content_background": true,
+   "purpose": "Two columns with the Form tab; also hosts full-width diagrams.",
+   "suits_purpose": [
+    "comparison",
+    "problem",
+    "solution",
+    "proof",
+    "data",
+    "team"
+   ],
+   "suits_visual_hint": [
+    "icons",
+    "key-number",
+    "chart",
+    "infographic",
+    "none"
+   ],
+   "signals": [
+    "comparison",
+    "text + visual",
+    "full-width diagram"
+   ],
+   "visuals": [
+    "band",
+    "chart",
+    "donut",
+    "fact_chips",
+    "icon",
+    "icon_set",
+    "info_box",
+    "pie",
+    "process",
+    "staircase",
+    "story_panel",
+    "table",
+    "tiers",
+    "tile_grid",
+    "wheel"
+   ],
+   "rank": 1,
+   "form_tab": true,
+   "picture": null,
+   "chart_placeholder": false,
+   "columns": 2,
+   "placeholders": [
+    {
+     "idx": 10,
+     "type": "body",
+     "side": "full",
+     "in": [
+      0.432,
+      0.755,
+      9.135,
+      0.202
+     ],
+     "pt": 12.0,
+     "chars_per_line": 107,
+     "lines": 2,
+     "max_chars": 214,
+     "one_line_bullets": null
+    },
+    {
+     "idx": 0,
+     "type": "title",
+     "side": "full",
+     "in": [
+      0.432,
+      0.374,
+      9.135,
+      0.303
+     ],
+     "pt": 18.0,
+     "chars_per_line": 71,
+     "lines": 1,
+     "max_chars": 71,
+     "one_line_bullets": null
+    },
+    {
+     "idx": 11,
+     "type": "object",
+     "side": "left",
+     "in": [
+      0.432,
+      1.198,
+      4.372,
+      3.898
+     ],
+     "pt": 14.0,
+     "chars_per_line": 42,
+     "lines": 16,
+     "max_chars": 672,
+     "one_line_bullets": 14
+    },
+    {
+     "idx": 12,
+     "type": "object",
+     "side": "right",
+     "in": [
+      5.196,
+      1.198,
+      4.372,
+      3.898
+     ],
+     "pt": 14.0,
+     "chars_per_line": 42,
+     "lines": 16,
+     "max_chars": 672,
+     "one_line_bullets": 14
+    }
+   ],
+   "guide_examples": [
+    "reference/guide-slides/slide-29.jpg"
+   ]
+  },
+  {
+   "index": 16,
+   "name": "Inhalt & Tracker",
+   "role": "content",
+   "family": "Weiß",
+   "background": "#FFFFFF",
+   "counts_as_content_background": true,
+   "purpose": "Text left + chart right + 4 right-edge tracker tabs.",
+   "suits_purpose": [
+    "data",
+    "proof",
+    "process"
+   ],
+   "suits_visual_hint": [
+    "chart"
+   ],
+   "signals": [
+    "numeric series inside a 4-part story",
+    "progress through 4 steps"
+   ],
+   "visuals": [
+    "chart"
+   ],
+   "rank": 1,
+   "form_tab": false,
+   "picture": null,
+   "chart_placeholder": true,
+   "columns": 2,
+   "placeholders": [
+    {
+     "idx": 14,
+     "type": "body",
+     "side": "right",
+     "in": [
+      9.717,
+      1.04,
+      0.283,
+      0.976
+     ],
+     "pt": 1.0,
+     "chars_per_line": 12,
+     "lines": 58,
+     "max_chars": 696,
+     "one_line_bullets": 17
+    },
+    {
+     "idx": 10,
+     "type": "body",
+     "side": "full",
+     "in": [
+      0.432,
+      0.755,
+      9.135,
+      0.202
+     ],
+     "pt": 12.0,
+     "chars_per_line": 107,
+     "lines": 2,
+     "max_chars": 214,
+     "one_line_bullets": null
+    },
+    {
+     "idx": 0,
+     "type": "title",
+     "side": "full",
+     "in": [
+      0.432,
+      0.374,
+      9.135,
+      0.303
+     ],
+     "pt": 18.0,
+     "chars_per_line": 71,
+     "lines": 1,
+     "max_chars": 71,
+     "one_line_bullets": null
+    },
+    {
+     "idx": 11,
+     "type": "object",
+     "side": "left",
+     "in": [
+      0.432,
+      1.198,
+      4.372,
+      3.898
+     ],
+     "pt": 14.0,
+     "chars_per_line": 42,
+     "lines": 16,
+     "max_chars": 672,
+     "one_line_bullets": 14
+    },
+    {
+     "idx": 12,
+     "type": "chart",
+     "side": "right",
+     "in": [
+      5.392,
+      1.198,
+      4.009,
+      3.74
+     ]
+    },
+    {
+     "idx": 15,
+     "type": "body",
+     "side": "right",
+     "in": [
+      9.717,
+      2.066,
+      0.283,
+      0.976
+     ],
+     "pt": 1.0,
+     "chars_per_line": 12,
+     "lines": 58,
+     "max_chars": 696,
+     "one_line_bullets": 17
+    },
+    {
+     "idx": 16,
+     "type": "body",
+     "side": "right",
+     "in": [
+      9.717,
+      3.093,
+      0.283,
+      0.976
+     ],
+     "pt": 1.0,
+     "chars_per_line": 12,
+     "lines": 58,
+     "max_chars": 696,
+     "one_line_bullets": 17
+    },
+    {
+     "idx": 17,
+     "type": "body",
+     "side": "right",
+     "in": [
+      9.717,
+      4.119,
+      0.283,
+      0.976
+     ],
+     "pt": 1.0,
+     "chars_per_line": 12,
+     "lines": 58,
+     "max_chars": 696,
+     "one_line_bullets": 17
+    }
+   ],
+   "guide_examples": [
+    "reference/guide-slides/slide-08.jpg",
+    "reference/guide-slides/slide-09.jpg",
+    "reference/guide-slides/slide-10.jpg",
+    "reference/guide-slides/slide-11.jpg",
+    "reference/guide-slides/slide-30.jpg"
+   ]
+  },
+  {
+   "index": 17,
+   "name": "Bild & Diagramm",
+   "role": "content",
+   "family": "Weiß",
+   "background": "#FFFFFF",
+   "counts_as_content_background": true,
+   "purpose": "Picture left + chart right.",
+   "suits_purpose": [
+    "data",
+    "proof"
+   ],
+   "suits_visual_hint": [
+    "chart",
+    "image"
+   ],
+   "signals": [
+    "numeric series + a user photo"
+   ],
+   "visuals": [
+    "chart"
+   ],
+   "rank": 2,
+   "form_tab": false,
+   "picture": "left",
+   "chart_placeholder": true,
+   "columns": 2,
+   "placeholders": [
+    {
+     "idx": 11,
+     "type": "picture",
+     "side": "left",
+     "in": [
+      0.432,
+      1.04,
+      4.056,
+      4.056
+     ]
+    },
+    {
+     "idx": 0,
+     "type": "title",
+     "side": "full",
+     "in": [
+      0.432,
+      0.374,
+      9.135,
+      0.303
+     ],
+     "pt": 18.0,
+     "chars_per_line": 71,
+     "lines": 1,
+     "max_chars": 71,
+     "one_line_bullets": null
+    },
+    {
+     "idx": 16,
+     "type": "body",
+     "side": "full",
+     "in": [
+      0.432,
+      0.755,
+      9.135,
+      0.202
+     ],
+     "pt": 12.0,
+     "chars_per_line": 107,
+     "lines": 21,
+     "max_chars": 2247,
+     "one_line_bullets": null
+    },
+    {
+     "idx": 12,
+     "type": "chart",
+     "side": "right",
+     "in": [
+      4.882,
+      1.198,
+      4.686,
+      3.898
+     ]
+    }
+   ],
+   "guide_examples": [
+    "reference/guide-slides/slide-31.jpg"
+   ]
+  },
+  {
+   "index": 18,
+   "name": "Inhalt - Grau",
+   "role": "content",
+   "family": "Grau",
+   "background": "#EBEAE2",
+   "counts_as_content_background": true,
+   "purpose": "Full-width content area: narrative bullets, table, full-width diagram.",
+   "suits_purpose": [
+    "intro",
+    "problem",
+    "solution",
+    "proof",
+    "process",
+    "comparison",
+    "data",
+    "team",
+    "summary",
+    "cta"
+   ],
+   "suits_visual_hint": [
+    "infographic",
+    "icons",
+    "table",
+    "chart",
+    "key-number",
+    "none"
+   ],
+   "signals": [
+    "narrative bullets",
+    "tabular data",
+    "full-width diagram (process, staircase, tiers, wheel, band, tile grid, fact chips)"
+   ],
+   "visuals": [
+    "icon_set",
+    "process",
+    "staircase",
+    "tiers",
+    "wheel",
+    "band",
+    "tile_grid",
+    "fact_chips",
+    "table",
+    "chart",
+    "story_panel",
+    "icon",
+    "info_box",
+    "donut",
+    "pie"
+   ],
+   "rank": 0,
+   "form_tab": false,
+   "picture": null,
+   "chart_placeholder": false,
+   "columns": 1,
+   "placeholders": [
+    {
+     "idx": 10,
+     "type": "body",
+     "side": "full",
+     "in": [
+      0.432,
+      0.755,
+      9.135,
+      0.202
+     ],
+     "pt": 12.0,
+     "chars_per_line": 107,
+     "lines": 2,
+     "max_chars": 214,
+     "one_line_bullets": null
+    },
+    {
+     "idx": 0,
+     "type": "title",
+     "side": "full",
+     "in": [
+      0.432,
+      0.374,
+      9.135,
+      0.303
+     ],
+     "pt": 18.0,
+     "chars_per_line": 71,
+     "lines": 1,
+     "max_chars": 71,
+     "one_line_bullets": null
+    },
+    {
+     "idx": 11,
+     "type": "object",
+     "side": "full",
+     "in": [
+      0.432,
+      1.198,
+      9.135,
+      3.898
+     ],
+     "pt": 14.0,
+     "chars_per_line": 90,
+     "lines": 16,
+     "max_chars": 1440,
+     "one_line_bullets": 14
+    }
+   ],
+   "guide_examples": [
+    "reference/guide-slides/slide-32.jpg"
+   ]
+  },
+  {
+   "index": 19,
+   "name": "2 Inhalte - Grau",
+   "role": "content",
+   "family": "Grau",
+   "background": "#EBEAE2",
+   "counts_as_content_background": true,
+   "purpose": "Two columns: comparison, or text beside a visual (donut, stacked chips, story).",
+   "suits_purpose": [
+    "comparison",
+    "problem",
+    "solution",
+    "proof",
+    "data",
+    "team"
+   ],
+   "suits_visual_hint": [
+    "icons",
+    "key-number",
+    "chart",
+    "infographic",
+    "none"
+   ],
+   "signals": [
+    "comparison / before-after / pros-cons",
+    "text + one visual",
+    "case story"
+   ],
+   "visuals": [
+    "icon_set",
+    "tile_grid",
+    "process",
+    "band",
+    "donut",
+    "pie",
+    "fact_chips",
+    "story_panel",
+    "chart",
+    "icon",
+    "info_box"
+   ],
+   "rank": 0,
+   "form_tab": false,
+   "picture": null,
+   "chart_placeholder": false,
+   "columns": 2,
+   "placeholders": [
+    {
+     "idx": 10,
+     "type": "body",
+     "side": "full",
+     "in": [
+      0.432,
+      0.755,
+      9.135,
+      0.202
+     ],
+     "pt": 12.0,
+     "chars_per_line": 107,
+     "lines": 2,
+     "max_chars": 214,
+     "one_line_bullets": null
+    },
+    {
+     "idx": 0,
+     "type": "title",
+     "side": "full",
+     "in": [
+      0.432,
+      0.374,
+      9.135,
+      0.303
+     ],
+     "pt": 18.0,
+     "chars_per_line": 71,
+     "lines": 1,
+     "max_chars": 71,
+     "one_line_bullets": null
+    },
+    {
+     "idx": 11,
+     "type": "object",
+     "side": "left",
+     "in": [
+      0.432,
+      1.198,
+      4.372,
+      3.898
+     ],
+     "pt": 14.0,
+     "chars_per_line": 42,
+     "lines": 16,
+     "max_chars": 672,
+     "one_line_bullets": 14
+    },
+    {
+     "idx": 12,
+     "type": "object",
+     "side": "right",
+     "in": [
+      5.196,
+      1.198,
+      4.372,
+      3.898
+     ],
+     "pt": 14.0,
+     "chars_per_line": 42,
+     "lines": 16,
+     "max_chars": 672,
+     "one_line_bullets": 14
+    }
+   ],
+   "guide_examples": [
+    "reference/guide-slides/slide-33.jpg"
+   ]
+  },
+  {
+   "index": 20,
+   "name": "Inhalt & Diagramm - Grau",
+   "role": "content",
+   "family": "Grau",
+   "background": "#EBEAE2",
+   "counts_as_content_background": true,
+   "purpose": "Text left + chart in a top-rounded panel right.",
+   "suits_purpose": [
+    "data",
+    "proof"
+   ],
+   "suits_visual_hint": [
+    "chart",
+    "key-number"
+   ],
+   "signals": [
+    "numeric series + commentary"
+   ],
+   "visuals": [
+    "chart",
+    "donut",
+    "pie"
+   ],
+   "rank": 0,
+   "form_tab": false,
+   "picture": null,
+   "chart_placeholder": true,
+   "columns": 2,
+   "placeholders": [
+    {
+     "idx": 10,
+     "type": "body",
+     "side": "full",
+     "in": [
+      0.432,
+      0.755,
+      9.135,
+      0.202
+     ],
+     "pt": 12.0,
+     "chars_per_line": 107,
+     "lines": 2,
+     "max_chars": 214,
+     "one_line_bullets": null
+    },
+    {
+     "idx": 0,
+     "type": "title",
+     "side": "full",
+     "in": [
+      0.432,
+      0.374,
+      9.135,
+      0.303
+     ],
+     "pt": 18.0,
+     "chars_per_line": 71,
+     "lines": 1,
+     "max_chars": 71,
+     "one_line_bullets": null
+    },
+    {
+     "idx": 11,
+     "type": "object",
+     "side": "left",
+     "in": [
+      0.432,
+      1.198,
+      4.372,
+      3.898
+     ],
+     "pt": 14.0,
+     "chars_per_line": 42,
+     "lines": 16,
+     "max_chars": 672,
+     "one_line_bullets": 14
+    },
+    {
+     "idx": 12,
+     "type": "chart",
+     "side": "right",
+     "in": [
+      5.392,
+      1.198,
+      4.175,
+      3.74
+     ]
+    }
+   ],
+   "guide_examples": [
+    "reference/guide-slides/slide-34.jpg"
+   ]
+  },
+  {
+   "index": 21,
+   "name": "Diagramm & Inhalt - Grau",
+   "role": "content",
+   "family": "Grau",
+   "background": "#EBEAE2",
+   "counts_as_content_background": true,
+   "purpose": "Chart in a top-rounded panel left + text right.",
+   "suits_purpose": [
+    "data",
+    "proof"
+   ],
+   "suits_visual_hint": [
+    "chart",
+    "key-number"
+   ],
+   "signals": [
+    "numeric series + commentary (chart first)"
+   ],
+   "visuals": [
+    "chart",
+    "donut",
+    "pie"
+   ],
+   "rank": 1,
+   "form_tab": false,
+   "picture": null,
+   "chart_placeholder": true,
+   "columns": 2,
+   "placeholders": [
+    {
+     "idx": 10,
+     "type": "body",
+     "side": "full",
+     "in": [
+      0.432,
+      0.755,
+      9.135,
+      0.202
+     ],
+     "pt": 12.0,
+     "chars_per_line": 107,
+     "lines": 2,
+     "max_chars": 214,
+     "one_line_bullets": null
+    },
+    {
+     "idx": 0,
+     "type": "title",
+     "side": "full",
+     "in": [
+      0.432,
+      0.374,
+      9.135,
+      0.303
+     ],
+     "pt": 18.0,
+     "chars_per_line": 71,
+     "lines": 1,
+     "max_chars": 71,
+     "one_line_bullets": null
+    },
+    {
+     "idx": 11,
+     "type": "object",
+     "side": "right",
+     "in": [
+      5.196,
+      1.198,
+      4.372,
+      3.898
+     ],
+     "pt": 14.0,
+     "chars_per_line": 42,
+     "lines": 16,
+     "max_chars": 672,
+     "one_line_bullets": 14
+    },
+    {
+     "idx": 12,
+     "type": "chart",
+     "side": "left",
+     "in": [
+      0.432,
+      1.198,
+      4.175,
+      3.74
+     ]
+    }
+   ],
+   "guide_examples": [
+    "reference/guide-slides/slide-35.jpg"
+   ]
+  },
+  {
+   "index": 22,
+   "name": "Inhalt & Form - Grau",
+   "role": "content",
+   "family": "Grau",
+   "background": "#EBEAE2",
+   "counts_as_content_background": true,
+   "purpose": "Full-width content with the decorative Form tab - rhythm variant of Inhalt.",
+   "suits_purpose": [
+    "intro",
+    "problem",
+    "solution",
+    "proof",
+    "process",
+    "comparison",
+    "data",
+    "team",
+    "summary",
+    "cta"
+   ],
+   "suits_visual_hint": [
+    "infographic",
+    "icons",
+    "table",
+    "chart",
+    "key-number",
+    "none"
+   ],
+   "signals": [
+    "full-width diagram",
+    "narrative bullets",
+    "slide after another full-width slide"
+   ],
+   "visuals": [
+    "icon_set",
+    "process",
+    "staircase",
+    "tiers",
+    "wheel",
+    "band",
+    "tile_grid",
+    "fact_chips",
+    "table",
+    "chart",
+    "story_panel",
+    "icon",
+    "info_box",
+    "donut",
+    "pie"
+   ],
+   "rank": 1,
+   "form_tab": true,
+   "picture": null,
+   "chart_placeholder": false,
+   "columns": 1,
+   "placeholders": [
+    {
+     "idx": 10,
+     "type": "body",
+     "side": "full",
+     "in": [
+      0.432,
+      0.755,
+      9.135,
+      0.202
+     ],
+     "pt": 12.0,
+     "chars_per_line": 107,
+     "lines": 2,
+     "max_chars": 214,
+     "one_line_bullets": null
+    },
+    {
+     "idx": 0,
+     "type": "title",
+     "side": "full",
+     "in": [
+      0.432,
+      0.374,
+      9.135,
+      0.303
+     ],
+     "pt": 18.0,
+     "chars_per_line": 71,
+     "lines": 1,
+     "max_chars": 71,
+     "one_line_bullets": null
+    },
+    {
+     "idx": 11,
+     "type": "object",
+     "side": "full",
+     "in": [
+      0.432,
+      1.198,
+      9.135,
+      3.898
+     ],
+     "pt": 14.0,
+     "chars_per_line": 90,
+     "lines": 16,
+     "max_chars": 1440,
+     "one_line_bullets": 14
+    }
+   ],
+   "guide_examples": [
+    "reference/guide-slides/slide-36.jpg"
+   ]
+  },
+  {
+   "index": 23,
+   "name": "2 Inhalte & Form - Grau",
+   "role": "content",
+   "family": "Grau",
+   "background": "#EBEAE2",
+   "counts_as_content_background": true,
+   "purpose": "Two columns with the Form tab; also hosts full-width diagrams.",
+   "suits_purpose": [
+    "comparison",
+    "problem",
+    "solution",
+    "proof",
+    "data",
+    "team"
+   ],
+   "suits_visual_hint": [
+    "icons",
+    "key-number",
+    "chart",
+    "infographic",
+    "none"
+   ],
+   "signals": [
+    "comparison",
+    "text + visual",
+    "full-width diagram"
+   ],
+   "visuals": [
+    "band",
+    "chart",
+    "donut",
+    "fact_chips",
+    "icon",
+    "icon_set",
+    "info_box",
+    "pie",
+    "process",
+    "staircase",
+    "story_panel",
+    "table",
+    "tiers",
+    "tile_grid",
+    "wheel"
+   ],
+   "rank": 1,
+   "form_tab": true,
+   "picture": null,
+   "chart_placeholder": false,
+   "columns": 2,
+   "placeholders": [
+    {
+     "idx": 10,
+     "type": "body",
+     "side": "full",
+     "in": [
+      0.432,
+      0.755,
+      9.135,
+      0.202
+     ],
+     "pt": 12.0,
+     "chars_per_line": 107,
+     "lines": 2,
+     "max_chars": 214,
+     "one_line_bullets": null
+    },
+    {
+     "idx": 0,
+     "type": "title",
+     "side": "full",
+     "in": [
+      0.432,
+      0.374,
+      9.135,
+      0.303
+     ],
+     "pt": 18.0,
+     "chars_per_line": 71,
+     "lines": 1,
+     "max_chars": 71,
+     "one_line_bullets": null
+    },
+    {
+     "idx": 11,
+     "type": "object",
+     "side": "left",
+     "in": [
+      0.432,
+      1.198,
+      4.372,
+      3.898
+     ],
+     "pt": 14.0,
+     "chars_per_line": 42,
+     "lines": 16,
+     "max_chars": 672,
+     "one_line_bullets": 14
+    },
+    {
+     "idx": 12,
+     "type": "object",
+     "side": "right",
+     "in": [
+      5.196,
+      1.198,
+      4.372,
+      3.898
+     ],
+     "pt": 14.0,
+     "chars_per_line": 42,
+     "lines": 16,
+     "max_chars": 672,
+     "one_line_bullets": 14
+    }
+   ],
+   "guide_examples": [
+    "reference/guide-slides/slide-37.jpg"
+   ]
+  },
+  {
+   "index": 24,
+   "name": "Inhalt, Diagramm & Form - Grau",
+   "role": "content",
+   "family": "Grau",
+   "background": "#EBEAE2",
+   "counts_as_content_background": true,
+   "purpose": "Text left + chart right + Form tab.",
+   "suits_purpose": [
+    "data",
+    "proof"
+   ],
+   "suits_visual_hint": [
+    "chart",
+    "key-number"
+   ],
+   "signals": [
+    "numeric series + commentary"
+   ],
+   "visuals": [
+    "chart",
+    "donut",
+    "pie"
+   ],
+   "rank": 2,
+   "form_tab": true,
+   "picture": null,
+   "chart_placeholder": true,
+   "columns": 2,
+   "placeholders": [
+    {
+     "idx": 10,
+     "type": "body",
+     "side": "full",
+     "in": [
+      0.432,
+      0.755,
+      9.135,
+      0.202
+     ],
+     "pt": 12.0,
+     "chars_per_line": 107,
+     "lines": 2,
+     "max_chars": 214,
+     "one_line_bullets": null
+    },
+    {
+     "idx": 0,
+     "type": "title",
+     "side": "full",
+     "in": [
+      0.432,
+      0.374,
+      9.135,
+      0.303
+     ],
+     "pt": 18.0,
+     "chars_per_line": 71,
+     "lines": 1,
+     "max_chars": 71,
+     "one_line_bullets": null
+    },
+    {
+     "idx": 11,
+     "type": "object",
+     "side": "left",
+     "in": [
+      0.432,
+      1.198,
+      4.372,
+      3.898
+     ],
+     "pt": 14.0,
+     "chars_per_line": 42,
+     "lines": 16,
+     "max_chars": 672,
+     "one_line_bullets": 14
+    },
+    {
+     "idx": 12,
+     "type": "chart",
+     "side": "right",
+     "in": [
+      5.392,
+      1.198,
+      4.175,
+      3.74
+     ]
+    }
+   ],
+   "guide_examples": [
+    "reference/guide-slides/slide-38.jpg"
+   ]
+  },
+  {
+   "index": 25,
+   "name": "Inhalt - Gelb",
+   "role": "content",
+   "family": "Gelb",
+   "background": "#FFF8DF",
+   "counts_as_content_background": true,
+   "purpose": "Full-width content area: narrative bullets, table, full-width diagram.",
+   "suits_purpose": [
+    "intro",
+    "problem",
+    "solution",
+    "proof",
+    "process",
+    "comparison",
+    "data",
+    "team",
+    "summary",
+    "cta"
+   ],
+   "suits_visual_hint": [
+    "infographic",
+    "icons",
+    "table",
+    "chart",
+    "key-number",
+    "none"
+   ],
+   "signals": [
+    "narrative bullets",
+    "tabular data",
+    "full-width diagram (process, staircase, tiers, wheel, band, tile grid, fact chips)"
+   ],
+   "visuals": [
+    "icon_set",
+    "process",
+    "staircase",
+    "tiers",
+    "wheel",
+    "band",
+    "tile_grid",
+    "fact_chips",
+    "table",
+    "chart",
+    "story_panel",
+    "icon",
+    "info_box",
+    "donut",
+    "pie"
+   ],
+   "rank": 0,
+   "form_tab": false,
+   "picture": null,
+   "chart_placeholder": false,
+   "columns": 1,
+   "placeholders": [
+    {
+     "idx": 10,
+     "type": "body",
+     "side": "full",
+     "in": [
+      0.432,
+      0.755,
+      9.135,
+      0.202
+     ],
+     "pt": 12.0,
+     "chars_per_line": 107,
+     "lines": 2,
+     "max_chars": 214,
+     "one_line_bullets": null
+    },
+    {
+     "idx": 0,
+     "type": "title",
+     "side": "full",
+     "in": [
+      0.432,
+      0.374,
+      9.135,
+      0.303
+     ],
+     "pt": 18.0,
+     "chars_per_line": 71,
+     "lines": 1,
+     "max_chars": 71,
+     "one_line_bullets": null
+    },
+    {
+     "idx": 11,
+     "type": "object",
+     "side": "full",
+     "in": [
+      0.432,
+      1.198,
+      9.135,
+      3.898
+     ],
+     "pt": 14.0,
+     "chars_per_line": 90,
+     "lines": 16,
+     "max_chars": 1440,
+     "one_line_bullets": 14
+    }
+   ],
+   "guide_examples": [
+    "reference/guide-slides/slide-39.jpg"
+   ]
+  },
+  {
+   "index": 26,
+   "name": "2 Inhalte - Gelb",
+   "role": "content",
+   "family": "Gelb",
+   "background": "#FFF8DF",
+   "counts_as_content_background": true,
+   "purpose": "Two columns: comparison, or text beside a visual (donut, stacked chips, story).",
+   "suits_purpose": [
+    "comparison",
+    "problem",
+    "solution",
+    "proof",
+    "data",
+    "team"
+   ],
+   "suits_visual_hint": [
+    "icons",
+    "key-number",
+    "chart",
+    "infographic",
+    "none"
+   ],
+   "signals": [
+    "comparison / before-after / pros-cons",
+    "text + one visual",
+    "case story"
+   ],
+   "visuals": [
+    "icon_set",
+    "tile_grid",
+    "process",
+    "band",
+    "donut",
+    "pie",
+    "fact_chips",
+    "story_panel",
+    "chart",
+    "icon",
+    "info_box"
+   ],
+   "rank": 0,
+   "form_tab": false,
+   "picture": null,
+   "chart_placeholder": false,
+   "columns": 2,
+   "placeholders": [
+    {
+     "idx": 10,
+     "type": "body",
+     "side": "full",
+     "in": [
+      0.432,
+      0.755,
+      9.135,
+      0.202
+     ],
+     "pt": 12.0,
+     "chars_per_line": 107,
+     "lines": 2,
+     "max_chars": 214,
+     "one_line_bullets": null
+    },
+    {
+     "idx": 0,
+     "type": "title",
+     "side": "full",
+     "in": [
+      0.432,
+      0.374,
+      9.135,
+      0.303
+     ],
+     "pt": 18.0,
+     "chars_per_line": 71,
+     "lines": 1,
+     "max_chars": 71,
+     "one_line_bullets": null
+    },
+    {
+     "idx": 11,
+     "type": "object",
+     "side": "left",
+     "in": [
+      0.432,
+      1.198,
+      4.372,
+      3.898
+     ],
+     "pt": 14.0,
+     "chars_per_line": 42,
+     "lines": 16,
+     "max_chars": 672,
+     "one_line_bullets": 14
+    },
+    {
+     "idx": 12,
+     "type": "object",
+     "side": "right",
+     "in": [
+      5.196,
+      1.198,
+      4.372,
+      3.898
+     ],
+     "pt": 14.0,
+     "chars_per_line": 42,
+     "lines": 16,
+     "max_chars": 672,
+     "one_line_bullets": 14
+    }
+   ],
+   "guide_examples": [
+    "reference/guide-slides/slide-40.jpg"
+   ]
+  },
+  {
+   "index": 27,
+   "name": "Inhalt & Diagramm - Gelb",
+   "role": "content",
+   "family": "Gelb",
+   "background": "#FFF8DF",
+   "counts_as_content_background": true,
+   "purpose": "Text left + chart in a top-rounded panel right.",
+   "suits_purpose": [
+    "data",
+    "proof"
+   ],
+   "suits_visual_hint": [
+    "chart",
+    "key-number"
+   ],
+   "signals": [
+    "numeric series + commentary"
+   ],
+   "visuals": [
+    "chart",
+    "donut",
+    "pie"
+   ],
+   "rank": 0,
+   "form_tab": false,
+   "picture": null,
+   "chart_placeholder": true,
+   "columns": 2,
+   "placeholders": [
+    {
+     "idx": 10,
+     "type": "body",
+     "side": "full",
+     "in": [
+      0.432,
+      0.755,
+      9.135,
+      0.202
+     ],
+     "pt": 12.0,
+     "chars_per_line": 107,
+     "lines": 2,
+     "max_chars": 214,
+     "one_line_bullets": null
+    },
+    {
+     "idx": 0,
+     "type": "title",
+     "side": "full",
+     "in": [
+      0.432,
+      0.374,
+      9.135,
+      0.303
+     ],
+     "pt": 18.0,
+     "chars_per_line": 71,
+     "lines": 1,
+     "max_chars": 71,
+     "one_line_bullets": null
+    },
+    {
+     "idx": 11,
+     "type": "object",
+     "side": "left",
+     "in": [
+      0.432,
+      1.198,
+      4.372,
+      3.898
+     ],
+     "pt": 14.0,
+     "chars_per_line": 42,
+     "lines": 16,
+     "max_chars": 672,
+     "one_line_bullets": 14
+    },
+    {
+     "idx": 12,
+     "type": "chart",
+     "side": "right",
+     "in": [
+      5.392,
+      1.198,
+      4.175,
+      3.74
+     ]
+    }
+   ],
+   "guide_examples": [
+    "reference/guide-slides/slide-41.jpg"
+   ]
+  },
+  {
+   "index": 28,
+   "name": "Diagramm & Inhalt - Gelb",
+   "role": "content",
+   "family": "Gelb",
+   "background": "#FFF8DF",
+   "counts_as_content_background": true,
+   "purpose": "Chart in a top-rounded panel left + text right.",
+   "suits_purpose": [
+    "data",
+    "proof"
+   ],
+   "suits_visual_hint": [
+    "chart",
+    "key-number"
+   ],
+   "signals": [
+    "numeric series + commentary (chart first)"
+   ],
+   "visuals": [
+    "chart",
+    "donut",
+    "pie"
+   ],
+   "rank": 1,
+   "form_tab": false,
+   "picture": null,
+   "chart_placeholder": true,
+   "columns": 2,
+   "placeholders": [
+    {
+     "idx": 10,
+     "type": "body",
+     "side": "full",
+     "in": [
+      0.432,
+      0.755,
+      9.135,
+      0.202
+     ],
+     "pt": 12.0,
+     "chars_per_line": 107,
+     "lines": 2,
+     "max_chars": 214,
+     "one_line_bullets": null
+    },
+    {
+     "idx": 0,
+     "type": "title",
+     "side": "full",
+     "in": [
+      0.432,
+      0.374,
+      9.135,
+      0.303
+     ],
+     "pt": 18.0,
+     "chars_per_line": 71,
+     "lines": 1,
+     "max_chars": 71,
+     "one_line_bullets": null
+    },
+    {
+     "idx": 11,
+     "type": "object",
+     "side": "right",
+     "in": [
+      5.196,
+      1.198,
+      4.372,
+      3.898
+     ],
+     "pt": 14.0,
+     "chars_per_line": 42,
+     "lines": 16,
+     "max_chars": 672,
+     "one_line_bullets": 14
+    },
+    {
+     "idx": 12,
+     "type": "chart",
+     "side": "left",
+     "in": [
+      0.432,
+      1.198,
+      4.175,
+      3.74
+     ]
+    }
+   ],
+   "guide_examples": [
+    "reference/guide-slides/slide-42.jpg"
+   ]
+  },
+  {
+   "index": 29,
+   "name": "Inhalt & Form - Gelb",
+   "role": "content",
+   "family": "Gelb",
+   "background": "#FFF8DF",
+   "counts_as_content_background": true,
+   "purpose": "Full-width content with the decorative Form tab - rhythm variant of Inhalt.",
+   "suits_purpose": [
+    "intro",
+    "problem",
+    "solution",
+    "proof",
+    "process",
+    "comparison",
+    "data",
+    "team",
+    "summary",
+    "cta"
+   ],
+   "suits_visual_hint": [
+    "infographic",
+    "icons",
+    "table",
+    "chart",
+    "key-number",
+    "none"
+   ],
+   "signals": [
+    "full-width diagram",
+    "narrative bullets",
+    "slide after another full-width slide"
+   ],
+   "visuals": [
+    "icon_set",
+    "process",
+    "staircase",
+    "tiers",
+    "wheel",
+    "band",
+    "tile_grid",
+    "fact_chips",
+    "table",
+    "chart",
+    "story_panel",
+    "icon",
+    "info_box",
+    "donut",
+    "pie"
+   ],
+   "rank": 1,
+   "form_tab": true,
+   "picture": null,
+   "chart_placeholder": false,
+   "columns": 1,
+   "placeholders": [
+    {
+     "idx": 10,
+     "type": "body",
+     "side": "full",
+     "in": [
+      0.432,
+      0.755,
+      9.135,
+      0.202
+     ],
+     "pt": 12.0,
+     "chars_per_line": 107,
+     "lines": 2,
+     "max_chars": 214,
+     "one_line_bullets": null
+    },
+    {
+     "idx": 0,
+     "type": "title",
+     "side": "full",
+     "in": [
+      0.432,
+      0.374,
+      9.135,
+      0.303
+     ],
+     "pt": 18.0,
+     "chars_per_line": 71,
+     "lines": 1,
+     "max_chars": 71,
+     "one_line_bullets": null
+    },
+    {
+     "idx": 11,
+     "type": "object",
+     "side": "full",
+     "in": [
+      0.432,
+      1.198,
+      9.135,
+      3.898
+     ],
+     "pt": 14.0,
+     "chars_per_line": 90,
+     "lines": 16,
+     "max_chars": 1440,
+     "one_line_bullets": 14
+    }
+   ],
+   "guide_examples": [
+    "reference/guide-slides/slide-43.jpg"
+   ]
+  },
+  {
+   "index": 30,
+   "name": "2 Inhalte & Form - Gelb",
+   "role": "content",
+   "family": "Gelb",
+   "background": "#FFF8DF",
+   "counts_as_content_background": true,
+   "purpose": "Two columns with the Form tab; also hosts full-width diagrams.",
+   "suits_purpose": [
+    "comparison",
+    "problem",
+    "solution",
+    "proof",
+    "data",
+    "team"
+   ],
+   "suits_visual_hint": [
+    "icons",
+    "key-number",
+    "chart",
+    "infographic",
+    "none"
+   ],
+   "signals": [
+    "comparison",
+    "text + visual",
+    "full-width diagram"
+   ],
+   "visuals": [
+    "band",
+    "chart",
+    "donut",
+    "fact_chips",
+    "icon",
+    "icon_set",
+    "info_box",
+    "pie",
+    "process",
+    "staircase",
+    "story_panel",
+    "table",
+    "tiers",
+    "tile_grid",
+    "wheel"
+   ],
+   "rank": 1,
+   "form_tab": true,
+   "picture": null,
+   "chart_placeholder": false,
+   "columns": 2,
+   "placeholders": [
+    {
+     "idx": 10,
+     "type": "body",
+     "side": "full",
+     "in": [
+      0.432,
+      0.755,
+      9.135,
+      0.202
+     ],
+     "pt": 12.0,
+     "chars_per_line": 107,
+     "lines": 2,
+     "max_chars": 214,
+     "one_line_bullets": null
+    },
+    {
+     "idx": 0,
+     "type": "title",
+     "side": "full",
+     "in": [
+      0.432,
+      0.374,
+      9.135,
+      0.303
+     ],
+     "pt": 18.0,
+     "chars_per_line": 71,
+     "lines": 1,
+     "max_chars": 71,
+     "one_line_bullets": null
+    },
+    {
+     "idx": 11,
+     "type": "object",
+     "side": "left",
+     "in": [
+      0.432,
+      1.198,
+      4.372,
+      3.898
+     ],
+     "pt": 14.0,
+     "chars_per_line": 42,
+     "lines": 16,
+     "max_chars": 672,
+     "one_line_bullets": 14
+    },
+    {
+     "idx": 12,
+     "type": "object",
+     "side": "right",
+     "in": [
+      5.196,
+      1.198,
+      4.372,
+      3.898
+     ],
+     "pt": 14.0,
+     "chars_per_line": 42,
+     "lines": 16,
+     "max_chars": 672,
+     "one_line_bullets": 14
+    }
+   ],
+   "guide_examples": [
+    "reference/guide-slides/slide-44.jpg"
+   ]
+  },
+  {
+   "index": 31,
+   "name": "Inhalt, Diagramm & Form - Gelb",
+   "role": "content",
+   "family": "Gelb",
+   "background": "#FFF8DF",
+   "counts_as_content_background": true,
+   "purpose": "Text left + chart right + Form tab.",
+   "suits_purpose": [
+    "data",
+    "proof"
+   ],
+   "suits_visual_hint": [
+    "chart",
+    "key-number"
+   ],
+   "signals": [
+    "numeric series + commentary"
+   ],
+   "visuals": [
+    "chart",
+    "donut",
+    "pie"
+   ],
+   "rank": 2,
+   "form_tab": true,
+   "picture": null,
+   "chart_placeholder": true,
+   "columns": 2,
+   "placeholders": [
+    {
+     "idx": 10,
+     "type": "body",
+     "side": "full",
+     "in": [
+      0.432,
+      0.755,
+      9.135,
+      0.202
+     ],
+     "pt": 12.0,
+     "chars_per_line": 107,
+     "lines": 2,
+     "max_chars": 214,
+     "one_line_bullets": null
+    },
+    {
+     "idx": 0,
+     "type": "title",
+     "side": "full",
+     "in": [
+      0.432,
+      0.374,
+      9.135,
+      0.303
+     ],
+     "pt": 18.0,
+     "chars_per_line": 71,
+     "lines": 1,
+     "max_chars": 71,
+     "one_line_bullets": null
+    },
+    {
+     "idx": 11,
+     "type": "object",
+     "side": "left",
+     "in": [
+      0.432,
+      1.198,
+      4.372,
+      3.898
+     ],
+     "pt": 14.0,
+     "chars_per_line": 42,
+     "lines": 16,
+     "max_chars": 672,
+     "one_line_bullets": 14
+    },
+    {
+     "idx": 12,
+     "type": "chart",
+     "side": "right",
+     "in": [
+      5.392,
+      1.198,
+      4.175,
+      3.74
+     ]
+    }
+   ],
+   "guide_examples": [
+    "reference/guide-slides/slide-45.jpg"
+   ]
+  },
+  {
+   "index": 32,
+   "name": "Inhalt - Rosa",
+   "role": "content",
+   "family": "Rosa",
+   "background": "#F5E1EA",
+   "counts_as_content_background": true,
+   "purpose": "Full-width content area: narrative bullets, table, full-width diagram.",
+   "suits_purpose": [
+    "intro",
+    "problem",
+    "solution",
+    "proof",
+    "process",
+    "comparison",
+    "data",
+    "team",
+    "summary",
+    "cta"
+   ],
+   "suits_visual_hint": [
+    "infographic",
+    "icons",
+    "table",
+    "chart",
+    "key-number",
+    "none"
+   ],
+   "signals": [
+    "narrative bullets",
+    "tabular data",
+    "full-width diagram (process, staircase, tiers, wheel, band, tile grid, fact chips)"
+   ],
+   "visuals": [
+    "icon_set",
+    "process",
+    "staircase",
+    "tiers",
+    "wheel",
+    "band",
+    "tile_grid",
+    "fact_chips",
+    "table",
+    "chart",
+    "story_panel",
+    "icon",
+    "info_box",
+    "donut",
+    "pie"
+   ],
+   "rank": 0,
+   "form_tab": false,
+   "picture": null,
+   "chart_placeholder": false,
+   "columns": 1,
+   "placeholders": [
+    {
+     "idx": 10,
+     "type": "body",
+     "side": "full",
+     "in": [
+      0.432,
+      0.755,
+      9.135,
+      0.202
+     ],
+     "pt": 12.0,
+     "chars_per_line": 107,
+     "lines": 2,
+     "max_chars": 214,
+     "one_line_bullets": null
+    },
+    {
+     "idx": 0,
+     "type": "title",
+     "side": "full",
+     "in": [
+      0.432,
+      0.374,
+      9.135,
+      0.303
+     ],
+     "pt": 18.0,
+     "chars_per_line": 71,
+     "lines": 1,
+     "max_chars": 71,
+     "one_line_bullets": null
+    },
+    {
+     "idx": 11,
+     "type": "object",
+     "side": "full",
+     "in": [
+      0.432,
+      1.198,
+      9.135,
+      3.898
+     ],
+     "pt": 14.0,
+     "chars_per_line": 90,
+     "lines": 16,
+     "max_chars": 1440,
+     "one_line_bullets": 14
+    }
+   ],
+   "guide_examples": [
+    "reference/guide-slides/slide-12.jpg",
+    "reference/guide-slides/slide-13.jpg",
+    "reference/guide-slides/slide-46.jpg"
+   ]
+  },
+  {
+   "index": 33,
+   "name": "2 Inhalte - Rosa",
+   "role": "content",
+   "family": "Rosa",
+   "background": "#F5E1EA",
+   "counts_as_content_background": true,
+   "purpose": "Two columns: comparison, or text beside a visual (donut, stacked chips, story).",
+   "suits_purpose": [
+    "comparison",
+    "problem",
+    "solution",
+    "proof",
+    "data",
+    "team"
+   ],
+   "suits_visual_hint": [
+    "icons",
+    "key-number",
+    "chart",
+    "infographic",
+    "none"
+   ],
+   "signals": [
+    "comparison / before-after / pros-cons",
+    "text + one visual",
+    "case story"
+   ],
+   "visuals": [
+    "icon_set",
+    "tile_grid",
+    "process",
+    "band",
+    "donut",
+    "pie",
+    "fact_chips",
+    "story_panel",
+    "chart",
+    "icon",
+    "info_box"
+   ],
+   "rank": 0,
+   "form_tab": false,
+   "picture": null,
+   "chart_placeholder": false,
+   "columns": 2,
+   "placeholders": [
+    {
+     "idx": 10,
+     "type": "body",
+     "side": "full",
+     "in": [
+      0.432,
+      0.755,
+      9.135,
+      0.202
+     ],
+     "pt": 12.0,
+     "chars_per_line": 107,
+     "lines": 2,
+     "max_chars": 214,
+     "one_line_bullets": null
+    },
+    {
+     "idx": 0,
+     "type": "title",
+     "side": "full",
+     "in": [
+      0.432,
+      0.374,
+      9.135,
+      0.303
+     ],
+     "pt": 18.0,
+     "chars_per_line": 71,
+     "lines": 1,
+     "max_chars": 71,
+     "one_line_bullets": null
+    },
+    {
+     "idx": 11,
+     "type": "object",
+     "side": "left",
+     "in": [
+      0.432,
+      1.198,
+      4.372,
+      3.898
+     ],
+     "pt": 14.0,
+     "chars_per_line": 42,
+     "lines": 16,
+     "max_chars": 672,
+     "one_line_bullets": 14
+    },
+    {
+     "idx": 12,
+     "type": "object",
+     "side": "right",
+     "in": [
+      5.196,
+      1.198,
+      4.372,
+      3.898
+     ],
+     "pt": 14.0,
+     "chars_per_line": 42,
+     "lines": 16,
+     "max_chars": 672,
+     "one_line_bullets": 14
+    }
+   ],
+   "guide_examples": [
+    "reference/guide-slides/slide-47.jpg"
+   ]
+  },
+  {
+   "index": 34,
+   "name": "Inhalt & Diagramm - Rosa",
+   "role": "content",
+   "family": "Rosa",
+   "background": "#F5E1EA",
+   "counts_as_content_background": true,
+   "purpose": "Text left + chart in a top-rounded panel right.",
+   "suits_purpose": [
+    "data",
+    "proof"
+   ],
+   "suits_visual_hint": [
+    "chart",
+    "key-number"
+   ],
+   "signals": [
+    "numeric series + commentary"
+   ],
+   "visuals": [
+    "chart",
+    "donut",
+    "pie"
+   ],
+   "rank": 0,
+   "form_tab": false,
+   "picture": null,
+   "chart_placeholder": true,
+   "columns": 2,
+   "placeholders": [
+    {
+     "idx": 10,
+     "type": "body",
+     "side": "full",
+     "in": [
+      0.432,
+      0.755,
+      9.135,
+      0.202
+     ],
+     "pt": 12.0,
+     "chars_per_line": 107,
+     "lines": 2,
+     "max_chars": 214,
+     "one_line_bullets": null
+    },
+    {
+     "idx": 0,
+     "type": "title",
+     "side": "full",
+     "in": [
+      0.432,
+      0.374,
+      9.135,
+      0.303
+     ],
+     "pt": 18.0,
+     "chars_per_line": 71,
+     "lines": 1,
+     "max_chars": 71,
+     "one_line_bullets": null
+    },
+    {
+     "idx": 11,
+     "type": "object",
+     "side": "left",
+     "in": [
+      0.432,
+      1.198,
+      4.372,
+      3.898
+     ],
+     "pt": 14.0,
+     "chars_per_line": 42,
+     "lines": 16,
+     "max_chars": 672,
+     "one_line_bullets": 14
+    },
+    {
+     "idx": 12,
+     "type": "chart",
+     "side": "right",
+     "in": [
+      5.392,
+      1.198,
+      4.175,
+      3.74
+     ]
+    }
+   ],
+   "guide_examples": [
+    "reference/guide-slides/slide-48.jpg"
+   ]
+  },
+  {
+   "index": 35,
+   "name": "Diagramm & Inhalt - Rosa",
+   "role": "content",
+   "family": "Rosa",
+   "background": "#F5E1EA",
+   "counts_as_content_background": true,
+   "purpose": "Chart in a top-rounded panel left + text right.",
+   "suits_purpose": [
+    "data",
+    "proof"
+   ],
+   "suits_visual_hint": [
+    "chart",
+    "key-number"
+   ],
+   "signals": [
+    "numeric series + commentary (chart first)"
+   ],
+   "visuals": [
+    "chart",
+    "donut",
+    "pie"
+   ],
+   "rank": 1,
+   "form_tab": false,
+   "picture": null,
+   "chart_placeholder": true,
+   "columns": 2,
+   "placeholders": [
+    {
+     "idx": 10,
+     "type": "body",
+     "side": "full",
+     "in": [
+      0.432,
+      0.755,
+      9.135,
+      0.202
+     ],
+     "pt": 12.0,
+     "chars_per_line": 107,
+     "lines": 2,
+     "max_chars": 214,
+     "one_line_bullets": null
+    },
+    {
+     "idx": 0,
+     "type": "title",
+     "side": "full",
+     "in": [
+      0.432,
+      0.374,
+      9.135,
+      0.303
+     ],
+     "pt": 18.0,
+     "chars_per_line": 71,
+     "lines": 1,
+     "max_chars": 71,
+     "one_line_bullets": null
+    },
+    {
+     "idx": 11,
+     "type": "object",
+     "side": "right",
+     "in": [
+      5.196,
+      1.198,
+      4.372,
+      3.898
+     ],
+     "pt": 14.0,
+     "chars_per_line": 42,
+     "lines": 16,
+     "max_chars": 672,
+     "one_line_bullets": 14
+    },
+    {
+     "idx": 12,
+     "type": "chart",
+     "side": "left",
+     "in": [
+      0.432,
+      1.198,
+      4.175,
+      3.74
+     ]
+    }
+   ],
+   "guide_examples": [
+    "reference/guide-slides/slide-49.jpg"
+   ]
+  },
+  {
+   "index": 36,
+   "name": "Inhalt & Bild - Rosa",
+   "role": "content",
+   "family": "Rosa",
+   "background": "#F5E1EA",
+   "counts_as_content_background": true,
+   "purpose": "Text left + rounded picture right (only in the Rosa / Blau families).",
+   "suits_purpose": [
+    "intro",
+    "team",
+    "proof",
+    "solution"
+   ],
+   "suits_visual_hint": [
+    "image"
+   ],
+   "signals": [
+    "body text + a user photo",
+    "product or place shown in a photo"
+   ],
+   "visuals": [
+    "picture"
+   ],
+   "rank": 0,
+   "form_tab": false,
+   "picture": "right",
+   "chart_placeholder": false,
+   "columns": 2,
+   "placeholders": [
+    {
+     "idx": 11,
+     "type": "picture",
+     "side": "right",
+     "in": [
+      5.67,
+      1.198,
+      3.898,
+      3.898
+     ]
+    },
+    {
+     "idx": 0,
+     "type": "title",
+     "side": "full",
+     "in": [
+      0.432,
+      0.374,
+      9.135,
+      0.303
+     ],
+     "pt": 18.0,
+     "chars_per_line": 71,
+     "lines": 2,
+     "max_chars": 142,
+     "one_line_bullets": null
+    },
+    {
+     "idx": 13,
+     "type": "object",
+     "side": "left",
+     "in": [
+      0.432,
+      1.198,
+      4.844,
+      3.898
+     ],
+     "pt": 14.0,
+     "chars_per_line": 46,
+     "lines": 16,
+     "max_chars": 736,
+     "one_line_bullets": 14
+    }
+   ],
+   "guide_examples": [
+    "reference/guide-slides/slide-50.jpg"
+   ]
+  },
+  {
+   "index": 37,
+   "name": "Inhalt & Form - Rosa",
+   "role": "content",
+   "family": "Rosa",
+   "background": "#F5E1EA",
+   "counts_as_content_background": true,
+   "purpose": "Full-width content with the decorative Form tab - rhythm variant of Inhalt.",
+   "suits_purpose": [
+    "intro",
+    "problem",
+    "solution",
+    "proof",
+    "process",
+    "comparison",
+    "data",
+    "team",
+    "summary",
+    "cta"
+   ],
+   "suits_visual_hint": [
+    "infographic",
+    "icons",
+    "table",
+    "chart",
+    "key-number",
+    "none"
+   ],
+   "signals": [
+    "full-width diagram",
+    "narrative bullets",
+    "slide after another full-width slide"
+   ],
+   "visuals": [
+    "icon_set",
+    "process",
+    "staircase",
+    "tiers",
+    "wheel",
+    "band",
+    "tile_grid",
+    "fact_chips",
+    "table",
+    "chart",
+    "story_panel",
+    "icon",
+    "info_box",
+    "donut",
+    "pie"
+   ],
+   "rank": 1,
+   "form_tab": true,
+   "picture": null,
+   "chart_placeholder": false,
+   "columns": 1,
+   "placeholders": [
+    {
+     "idx": 10,
+     "type": "body",
+     "side": "full",
+     "in": [
+      0.432,
+      0.755,
+      9.135,
+      0.202
+     ],
+     "pt": 12.0,
+     "chars_per_line": 107,
+     "lines": 2,
+     "max_chars": 214,
+     "one_line_bullets": null
+    },
+    {
+     "idx": 0,
+     "type": "title",
+     "side": "full",
+     "in": [
+      0.432,
+      0.374,
+      9.135,
+      0.303
+     ],
+     "pt": 18.0,
+     "chars_per_line": 71,
+     "lines": 1,
+     "max_chars": 71,
+     "one_line_bullets": null
+    },
+    {
+     "idx": 11,
+     "type": "object",
+     "side": "full",
+     "in": [
+      0.432,
+      1.198,
+      9.135,
+      3.898
+     ],
+     "pt": 14.0,
+     "chars_per_line": 90,
+     "lines": 16,
+     "max_chars": 1440,
+     "one_line_bullets": 14
+    }
+   ],
+   "guide_examples": [
+    "reference/guide-slides/slide-51.jpg"
+   ]
+  },
+  {
+   "index": 38,
+   "name": "2 Inhalte & Form - Rosa",
+   "role": "content",
+   "family": "Rosa",
+   "background": "#F5E1EA",
+   "counts_as_content_background": true,
+   "purpose": "Two columns with the Form tab; also hosts full-width diagrams.",
+   "suits_purpose": [
+    "comparison",
+    "problem",
+    "solution",
+    "proof",
+    "data",
+    "team"
+   ],
+   "suits_visual_hint": [
+    "icons",
+    "key-number",
+    "chart",
+    "infographic",
+    "none"
+   ],
+   "signals": [
+    "comparison",
+    "text + visual",
+    "full-width diagram"
+   ],
+   "visuals": [
+    "band",
+    "chart",
+    "donut",
+    "fact_chips",
+    "icon",
+    "icon_set",
+    "info_box",
+    "pie",
+    "process",
+    "staircase",
+    "story_panel",
+    "table",
+    "tiers",
+    "tile_grid",
+    "wheel"
+   ],
+   "rank": 1,
+   "form_tab": true,
+   "picture": null,
+   "chart_placeholder": false,
+   "columns": 2,
+   "placeholders": [
+    {
+     "idx": 10,
+     "type": "body",
+     "side": "full",
+     "in": [
+      0.432,
+      0.755,
+      9.135,
+      0.202
+     ],
+     "pt": 12.0,
+     "chars_per_line": 107,
+     "lines": 2,
+     "max_chars": 214,
+     "one_line_bullets": null
+    },
+    {
+     "idx": 0,
+     "type": "title",
+     "side": "full",
+     "in": [
+      0.432,
+      0.374,
+      9.135,
+      0.303
+     ],
+     "pt": 18.0,
+     "chars_per_line": 71,
+     "lines": 1,
+     "max_chars": 71,
+     "one_line_bullets": null
+    },
+    {
+     "idx": 11,
+     "type": "object",
+     "side": "left",
+     "in": [
+      0.432,
+      1.198,
+      4.372,
+      3.898
+     ],
+     "pt": 14.0,
+     "chars_per_line": 42,
+     "lines": 16,
+     "max_chars": 672,
+     "one_line_bullets": 14
+    },
+    {
+     "idx": 12,
+     "type": "object",
+     "side": "right",
+     "in": [
+      5.196,
+      1.198,
+      4.372,
+      3.898
+     ],
+     "pt": 14.0,
+     "chars_per_line": 42,
+     "lines": 16,
+     "max_chars": 672,
+     "one_line_bullets": 14
+    }
+   ],
+   "guide_examples": [
+    "reference/guide-slides/slide-52.jpg"
+   ]
+  },
+  {
+   "index": 39,
+   "name": "Inhalt, Diagramm & Form - Rosa",
+   "role": "content",
+   "family": "Rosa",
+   "background": "#F5E1EA",
+   "counts_as_content_background": true,
+   "purpose": "Text left + chart right + Form tab.",
+   "suits_purpose": [
+    "data",
+    "proof"
+   ],
+   "suits_visual_hint": [
+    "chart",
+    "key-number"
+   ],
+   "signals": [
+    "numeric series + commentary"
+   ],
+   "visuals": [
+    "chart",
+    "donut",
+    "pie"
+   ],
+   "rank": 2,
+   "form_tab": true,
+   "picture": null,
+   "chart_placeholder": true,
+   "columns": 2,
+   "placeholders": [
+    {
+     "idx": 10,
+     "type": "body",
+     "side": "full",
+     "in": [
+      0.432,
+      0.755,
+      9.135,
+      0.202
+     ],
+     "pt": 12.0,
+     "chars_per_line": 107,
+     "lines": 2,
+     "max_chars": 214,
+     "one_line_bullets": null
+    },
+    {
+     "idx": 0,
+     "type": "title",
+     "side": "full",
+     "in": [
+      0.432,
+      0.374,
+      9.135,
+      0.303
+     ],
+     "pt": 18.0,
+     "chars_per_line": 71,
+     "lines": 1,
+     "max_chars": 71,
+     "one_line_bullets": null
+    },
+    {
+     "idx": 11,
+     "type": "object",
+     "side": "left",
+     "in": [
+      0.432,
+      1.198,
+      4.372,
+      3.898
+     ],
+     "pt": 14.0,
+     "chars_per_line": 42,
+     "lines": 16,
+     "max_chars": 672,
+     "one_line_bullets": 14
+    },
+    {
+     "idx": 12,
+     "type": "chart",
+     "side": "right",
+     "in": [
+      5.392,
+      1.198,
+      4.175,
+      3.74
+     ]
+    }
+   ],
+   "guide_examples": [
+    "reference/guide-slides/slide-53.jpg"
+   ]
+  },
+  {
+   "index": 40,
+   "name": "Inhalt - Blau",
+   "role": "content",
+   "family": "Blau",
+   "background": "#D3F1F0",
+   "counts_as_content_background": true,
+   "purpose": "Full-width content area: narrative bullets, table, full-width diagram.",
+   "suits_purpose": [
+    "intro",
+    "problem",
+    "solution",
+    "proof",
+    "process",
+    "comparison",
+    "data",
+    "team",
+    "summary",
+    "cta"
+   ],
+   "suits_visual_hint": [
+    "infographic",
+    "icons",
+    "table",
+    "chart",
+    "key-number",
+    "none"
+   ],
+   "signals": [
+    "narrative bullets",
+    "tabular data",
+    "full-width diagram (process, staircase, tiers, wheel, band, tile grid, fact chips)"
+   ],
+   "visuals": [
+    "icon_set",
+    "process",
+    "staircase",
+    "tiers",
+    "wheel",
+    "band",
+    "tile_grid",
+    "fact_chips",
+    "table",
+    "chart",
+    "story_panel",
+    "icon",
+    "info_box",
+    "donut",
+    "pie"
+   ],
+   "rank": 0,
+   "form_tab": false,
+   "picture": null,
+   "chart_placeholder": false,
+   "columns": 1,
+   "placeholders": [
+    {
+     "idx": 10,
+     "type": "body",
+     "side": "full",
+     "in": [
+      0.432,
+      0.755,
+      9.135,
+      0.202
+     ],
+     "pt": 12.0,
+     "chars_per_line": 107,
+     "lines": 2,
+     "max_chars": 214,
+     "one_line_bullets": null
+    },
+    {
+     "idx": 0,
+     "type": "title",
+     "side": "full",
+     "in": [
+      0.432,
+      0.374,
+      9.135,
+      0.303
+     ],
+     "pt": 18.0,
+     "chars_per_line": 71,
+     "lines": 1,
+     "max_chars": 71,
+     "one_line_bullets": null
+    },
+    {
+     "idx": 11,
+     "type": "object",
+     "side": "full",
+     "in": [
+      0.432,
+      1.198,
+      9.135,
+      3.898
+     ],
+     "pt": 14.0,
+     "chars_per_line": 90,
+     "lines": 16,
+     "max_chars": 1440,
+     "one_line_bullets": 14
+    }
+   ],
+   "guide_examples": [
+    "reference/guide-slides/slide-54.jpg"
+   ]
+  },
+  {
+   "index": 41,
+   "name": "2 Inhalte - Blau",
+   "role": "content",
+   "family": "Blau",
+   "background": "#D3F1F0",
+   "counts_as_content_background": true,
+   "purpose": "Two columns: comparison, or text beside a visual (donut, stacked chips, story).",
+   "suits_purpose": [
+    "comparison",
+    "problem",
+    "solution",
+    "proof",
+    "data",
+    "team"
+   ],
+   "suits_visual_hint": [
+    "icons",
+    "key-number",
+    "chart",
+    "infographic",
+    "none"
+   ],
+   "signals": [
+    "comparison / before-after / pros-cons",
+    "text + one visual",
+    "case story"
+   ],
+   "visuals": [
+    "icon_set",
+    "tile_grid",
+    "process",
+    "band",
+    "donut",
+    "pie",
+    "fact_chips",
+    "story_panel",
+    "chart",
+    "icon",
+    "info_box"
+   ],
+   "rank": 0,
+   "form_tab": false,
+   "picture": null,
+   "chart_placeholder": false,
+   "columns": 2,
+   "placeholders": [
+    {
+     "idx": 10,
+     "type": "body",
+     "side": "full",
+     "in": [
+      0.432,
+      0.755,
+      9.135,
+      0.202
+     ],
+     "pt": 12.0,
+     "chars_per_line": 107,
+     "lines": 2,
+     "max_chars": 214,
+     "one_line_bullets": null
+    },
+    {
+     "idx": 0,
+     "type": "title",
+     "side": "full",
+     "in": [
+      0.432,
+      0.374,
+      9.135,
+      0.303
+     ],
+     "pt": 18.0,
+     "chars_per_line": 71,
+     "lines": 1,
+     "max_chars": 71,
+     "one_line_bullets": null
+    },
+    {
+     "idx": 11,
+     "type": "object",
+     "side": "left",
+     "in": [
+      0.432,
+      1.198,
+      4.372,
+      3.898
+     ],
+     "pt": 14.0,
+     "chars_per_line": 42,
+     "lines": 16,
+     "max_chars": 672,
+     "one_line_bullets": 14
+    },
+    {
+     "idx": 12,
+     "type": "object",
+     "side": "right",
+     "in": [
+      5.196,
+      1.198,
+      4.372,
+      3.898
+     ],
+     "pt": 14.0,
+     "chars_per_line": 42,
+     "lines": 16,
+     "max_chars": 672,
+     "one_line_bullets": 14
+    }
+   ],
+   "guide_examples": [
+    "reference/guide-slides/slide-55.jpg"
+   ]
+  },
+  {
+   "index": 42,
+   "name": "Inhalt & Diagramm - Blau",
+   "role": "content",
+   "family": "Blau",
+   "background": "#D3F1F0",
+   "counts_as_content_background": true,
+   "purpose": "Text left + chart in a top-rounded panel right.",
+   "suits_purpose": [
+    "data",
+    "proof"
+   ],
+   "suits_visual_hint": [
+    "chart",
+    "key-number"
+   ],
+   "signals": [
+    "numeric series + commentary"
+   ],
+   "visuals": [
+    "chart",
+    "donut",
+    "pie"
+   ],
+   "rank": 0,
+   "form_tab": false,
+   "picture": null,
+   "chart_placeholder": true,
+   "columns": 2,
+   "placeholders": [
+    {
+     "idx": 10,
+     "type": "body",
+     "side": "full",
+     "in": [
+      0.432,
+      0.755,
+      9.135,
+      0.202
+     ],
+     "pt": 12.0,
+     "chars_per_line": 107,
+     "lines": 2,
+     "max_chars": 214,
+     "one_line_bullets": null
+    },
+    {
+     "idx": 0,
+     "type": "title",
+     "side": "full",
+     "in": [
+      0.432,
+      0.374,
+      9.135,
+      0.303
+     ],
+     "pt": 18.0,
+     "chars_per_line": 71,
+     "lines": 1,
+     "max_chars": 71,
+     "one_line_bullets": null
+    },
+    {
+     "idx": 11,
+     "type": "object",
+     "side": "left",
+     "in": [
+      0.432,
+      1.198,
+      4.372,
+      3.898
+     ],
+     "pt": 14.0,
+     "chars_per_line": 42,
+     "lines": 16,
+     "max_chars": 672,
+     "one_line_bullets": 14
+    },
+    {
+     "idx": 12,
+     "type": "chart",
+     "side": "right",
+     "in": [
+      5.392,
+      1.198,
+      4.175,
+      3.74
+     ]
+    }
+   ],
+   "guide_examples": [
+    "reference/guide-slides/slide-56.jpg"
+   ]
+  },
+  {
+   "index": 43,
+   "name": "Diagramm & Inhalt - Blau",
+   "role": "content",
+   "family": "Blau",
+   "background": "#D3F1F0",
+   "counts_as_content_background": true,
+   "purpose": "Chart in a top-rounded panel left + text right.",
+   "suits_purpose": [
+    "data",
+    "proof"
+   ],
+   "suits_visual_hint": [
+    "chart",
+    "key-number"
+   ],
+   "signals": [
+    "numeric series + commentary (chart first)"
+   ],
+   "visuals": [
+    "chart",
+    "donut",
+    "pie"
+   ],
+   "rank": 1,
+   "form_tab": false,
+   "picture": null,
+   "chart_placeholder": true,
+   "columns": 2,
+   "placeholders": [
+    {
+     "idx": 10,
+     "type": "body",
+     "side": "full",
+     "in": [
+      0.432,
+      0.755,
+      9.135,
+      0.202
+     ],
+     "pt": 12.0,
+     "chars_per_line": 107,
+     "lines": 2,
+     "max_chars": 214,
+     "one_line_bullets": null
+    },
+    {
+     "idx": 0,
+     "type": "title",
+     "side": "full",
+     "in": [
+      0.432,
+      0.374,
+      9.135,
+      0.303
+     ],
+     "pt": 18.0,
+     "chars_per_line": 71,
+     "lines": 1,
+     "max_chars": 71,
+     "one_line_bullets": null
+    },
+    {
+     "idx": 11,
+     "type": "object",
+     "side": "right",
+     "in": [
+      5.196,
+      1.198,
+      4.372,
+      3.898
+     ],
+     "pt": 14.0,
+     "chars_per_line": 42,
+     "lines": 16,
+     "max_chars": 672,
+     "one_line_bullets": 14
+    },
+    {
+     "idx": 12,
+     "type": "chart",
+     "side": "left",
+     "in": [
+      0.432,
+      1.198,
+      4.175,
+      3.74
+     ]
+    }
+   ],
+   "guide_examples": [
+    "reference/guide-slides/slide-57.jpg"
+   ]
+  },
+  {
+   "index": 44,
+   "name": "Inhalt & Form - Blau",
+   "role": "content",
+   "family": "Blau",
+   "background": "#D3F1F0",
+   "counts_as_content_background": true,
+   "purpose": "Full-width content with the decorative Form tab - rhythm variant of Inhalt.",
+   "suits_purpose": [
+    "intro",
+    "problem",
+    "solution",
+    "proof",
+    "process",
+    "comparison",
+    "data",
+    "team",
+    "summary",
+    "cta"
+   ],
+   "suits_visual_hint": [
+    "infographic",
+    "icons",
+    "table",
+    "chart",
+    "key-number",
+    "none"
+   ],
+   "signals": [
+    "full-width diagram",
+    "narrative bullets",
+    "slide after another full-width slide"
+   ],
+   "visuals": [
+    "icon_set",
+    "process",
+    "staircase",
+    "tiers",
+    "wheel",
+    "band",
+    "tile_grid",
+    "fact_chips",
+    "table",
+    "chart",
+    "story_panel",
+    "icon",
+    "info_box",
+    "donut",
+    "pie"
+   ],
+   "rank": 1,
+   "form_tab": true,
+   "picture": null,
+   "chart_placeholder": false,
+   "columns": 1,
+   "placeholders": [
+    {
+     "idx": 10,
+     "type": "body",
+     "side": "full",
+     "in": [
+      0.432,
+      0.755,
+      9.135,
+      0.202
+     ],
+     "pt": 12.0,
+     "chars_per_line": 107,
+     "lines": 2,
+     "max_chars": 214,
+     "one_line_bullets": null
+    },
+    {
+     "idx": 0,
+     "type": "title",
+     "side": "full",
+     "in": [
+      0.432,
+      0.374,
+      9.135,
+      0.303
+     ],
+     "pt": 18.0,
+     "chars_per_line": 71,
+     "lines": 1,
+     "max_chars": 71,
+     "one_line_bullets": null
+    },
+    {
+     "idx": 11,
+     "type": "object",
+     "side": "full",
+     "in": [
+      0.432,
+      1.198,
+      9.135,
+      3.898
+     ],
+     "pt": 14.0,
+     "chars_per_line": 90,
+     "lines": 16,
+     "max_chars": 1440,
+     "one_line_bullets": 14
+    }
+   ],
+   "guide_examples": [
+    "reference/guide-slides/slide-58.jpg"
+   ]
+  },
+  {
+   "index": 45,
+   "name": "2 Inhalte & Form - Blau",
+   "role": "content",
+   "family": "Blau",
+   "background": "#D3F1F0",
+   "counts_as_content_background": true,
+   "purpose": "Two columns with the Form tab; also hosts full-width diagrams.",
+   "suits_purpose": [
+    "comparison",
+    "problem",
+    "solution",
+    "proof",
+    "data",
+    "team"
+   ],
+   "suits_visual_hint": [
+    "icons",
+    "key-number",
+    "chart",
+    "infographic",
+    "none"
+   ],
+   "signals": [
+    "comparison",
+    "text + visual",
+    "full-width diagram"
+   ],
+   "visuals": [
+    "band",
+    "chart",
+    "donut",
+    "fact_chips",
+    "icon",
+    "icon_set",
+    "info_box",
+    "pie",
+    "process",
+    "staircase",
+    "story_panel",
+    "table",
+    "tiers",
+    "tile_grid",
+    "wheel"
+   ],
+   "rank": 1,
+   "form_tab": true,
+   "picture": null,
+   "chart_placeholder": false,
+   "columns": 2,
+   "placeholders": [
+    {
+     "idx": 10,
+     "type": "body",
+     "side": "full",
+     "in": [
+      0.432,
+      0.755,
+      9.135,
+      0.202
+     ],
+     "pt": 12.0,
+     "chars_per_line": 107,
+     "lines": 2,
+     "max_chars": 214,
+     "one_line_bullets": null
+    },
+    {
+     "idx": 0,
+     "type": "title",
+     "side": "full",
+     "in": [
+      0.432,
+      0.374,
+      9.135,
+      0.303
+     ],
+     "pt": 18.0,
+     "chars_per_line": 71,
+     "lines": 1,
+     "max_chars": 71,
+     "one_line_bullets": null
+    },
+    {
+     "idx": 11,
+     "type": "object",
+     "side": "left",
+     "in": [
+      0.432,
+      1.198,
+      4.372,
+      3.898
+     ],
+     "pt": 14.0,
+     "chars_per_line": 42,
+     "lines": 16,
+     "max_chars": 672,
+     "one_line_bullets": 14
+    },
+    {
+     "idx": 12,
+     "type": "object",
+     "side": "right",
+     "in": [
+      5.196,
+      1.198,
+      4.372,
+      3.898
+     ],
+     "pt": 14.0,
+     "chars_per_line": 42,
+     "lines": 16,
+     "max_chars": 672,
+     "one_line_bullets": 14
+    }
+   ],
+   "guide_examples": [
+    "reference/guide-slides/slide-59.jpg"
+   ]
+  },
+  {
+   "index": 46,
+   "name": "Inhalt, Digramm & Form - Blau",
+   "role": "content",
+   "family": "Blau",
+   "background": "#D3F1F0",
+   "counts_as_content_background": true,
+   "purpose": "Text left + chart right + Form tab.",
+   "suits_purpose": [
+    "data",
+    "proof"
+   ],
+   "suits_visual_hint": [
+    "chart",
+    "key-number"
+   ],
+   "signals": [
+    "numeric series + commentary"
+   ],
+   "visuals": [
+    "chart",
+    "donut",
+    "pie"
+   ],
+   "rank": 2,
+   "form_tab": true,
+   "picture": null,
+   "chart_placeholder": true,
+   "columns": 2,
+   "placeholders": [
+    {
+     "idx": 10,
+     "type": "body",
+     "side": "full",
+     "in": [
+      0.432,
+      0.755,
+      9.135,
+      0.202
+     ],
+     "pt": 12.0,
+     "chars_per_line": 107,
+     "lines": 2,
+     "max_chars": 214,
+     "one_line_bullets": null
+    },
+    {
+     "idx": 0,
+     "type": "title",
+     "side": "full",
+     "in": [
+      0.432,
+      0.374,
+      9.135,
+      0.303
+     ],
+     "pt": 18.0,
+     "chars_per_line": 71,
+     "lines": 1,
+     "max_chars": 71,
+     "one_line_bullets": null
+    },
+    {
+     "idx": 11,
+     "type": "object",
+     "side": "left",
+     "in": [
+      0.432,
+      1.198,
+      4.372,
+      3.898
+     ],
+     "pt": 14.0,
+     "chars_per_line": 42,
+     "lines": 16,
+     "max_chars": 672,
+     "one_line_bullets": 14
+    },
+    {
+     "idx": 12,
+     "type": "chart",
+     "side": "right",
+     "in": [
+      5.392,
+      1.198,
+      4.175,
+      3.74
+     ]
+    }
+   ],
+   "guide_examples": [
+    "reference/guide-slides/slide-60.jpg"
+   ]
+  },
+  {
+   "index": 47,
+   "name": "Inhalt, Bild & Form - Blau",
+   "role": "content",
+   "family": "Blau",
+   "background": "#D3F1F0",
+   "counts_as_content_background": true,
+   "purpose": "Text left + rounded picture right (only in the Rosa / Blau families).",
+   "suits_purpose": [
+    "intro",
+    "team",
+    "proof",
+    "solution"
+   ],
+   "suits_visual_hint": [
+    "image"
+   ],
+   "signals": [
+    "body text + a user photo",
+    "product or place shown in a photo"
+   ],
+   "visuals": [
+    "picture"
+   ],
+   "rank": 0,
+   "form_tab": true,
+   "picture": "right",
+   "chart_placeholder": false,
+   "columns": 2,
+   "placeholders": [
+    {
+     "idx": 11,
+     "type": "picture",
+     "side": "right",
+     "in": [
+      5.67,
+      1.198,
+      3.898,
+      3.898
+     ]
+    },
+    {
+     "idx": 0,
+     "type": "title",
+     "side": "full",
+     "in": [
+      0.432,
+      0.374,
+      9.135,
+      0.303
+     ],
+     "pt": 18.0,
+     "chars_per_line": 71,
+     "lines": 2,
+     "max_chars": 142,
+     "one_line_bullets": null
+    },
+    {
+     "idx": 13,
+     "type": "object",
+     "side": "left",
+     "in": [
+      0.432,
+      1.198,
+      4.844,
+      3.898
+     ],
+     "pt": 14.0,
+     "chars_per_line": 46,
+     "lines": 16,
+     "max_chars": 736,
+     "one_line_bullets": 14
+    }
+   ],
+   "guide_examples": [
+    "reference/guide-slides/slide-61.jpg"
+   ]
+  },
+  {
+   "index": 48,
+   "name": "Schlussfolie - Blau",
+   "role": "closing",
+   "family": "Blau",
+   "background": "#D3F1F0",
+   "counts_as_content_background": false,
+   "purpose": "Closing on mint: red 48 pt headline + contact line - the default.",
+   "suits_purpose": [],
+   "suits_visual_hint": [],
+   "signals": [
+    "thank you / call to action + contact"
+   ],
+   "visuals": [],
+   "rank": 0,
+   "form_tab": false,
+   "picture": null,
+   "chart_placeholder": false,
+   "columns": 1,
+   "placeholders": [
+    {
+     "idx": 1,
+     "type": "subtitle",
+     "side": "full",
+     "in": [
+      0.432,
+      4.068,
+      9.135,
+      0.236
+     ],
+     "pt": 14.0,
+     "chars_per_line": 92,
+     "lines": 4,
+     "max_chars": 368,
+     "one_line_bullets": null
+    },
+    {
+     "idx": 10,
+     "type": "body",
+     "side": "full",
+     "in": [
+      0.432,
+      3.067,
+      9.135,
+      0.808
+     ],
+     "pt": 48.0,
+     "chars_per_line": 26,
+     "lines": 1,
+     "max_chars": 26,
+     "one_line_bullets": null
+    }
+   ],
+   "guide_examples": [
+    "reference/guide-slides/slide-62.jpg"
+   ]
+  },
+  {
+   "index": 49,
+   "name": "Schlussfolie - Weiß",
+   "role": "closing",
+   "family": "Weiß",
+   "background": "#FFFFFF",
+   "counts_as_content_background": false,
+   "purpose": "Closing on white: black 48 pt headline + contact line.",
+   "suits_purpose": [],
+   "suits_visual_hint": [],
+   "signals": [
+    "thank you / call to action + contact"
+   ],
+   "visuals": [],
+   "rank": 1,
+   "form_tab": false,
+   "picture": null,
+   "chart_placeholder": false,
+   "columns": 1,
+   "placeholders": [
+    {
+     "idx": 1,
+     "type": "subtitle",
+     "side": "full",
+     "in": [
+      0.432,
+      4.068,
+      9.135,
+      0.236
+     ],
+     "pt": 14.0,
+     "chars_per_line": 92,
+     "lines": 4,
+     "max_chars": 368,
+     "one_line_bullets": null
+    },
+    {
+     "idx": 10,
+     "type": "body",
+     "side": "full",
+     "in": [
+      0.432,
+      3.067,
+      9.135,
+      0.808
+     ],
+     "pt": 48.0,
+     "chars_per_line": 26,
+     "lines": 1,
+     "max_chars": 26,
+     "one_line_bullets": null
+    }
+   ],
+   "guide_examples": [
+    "reference/guide-slides/slide-63.jpg"
+   ]
+  }
+ ]
+}
