@@ -31,7 +31,12 @@ systemctl --user status amasol-deck          # state
 journalctl --user -u amasol-deck -f          # logs
 systemctl --user restart amasol-deck         # after a code change (rebuild web/ first: cd web && npm run build)
 sudo tailscale funnel --https=8443 off       # take the public link down
+journalctl --user -u amasol-deck-watchdog    # watchdog actions
 ```
+
+A watchdog timer (`amasol-deck-watchdog.timer`, every 2 minutes, unit files and script in `deploy/`) restarts the
+service if the backend stops answering three times in a row, and re-applies the Funnel rule if the public route
+is down while the backend is fine. It logs only when it acts or when the Vercel front end does not answer.
 
 ### Vercel front end
 
