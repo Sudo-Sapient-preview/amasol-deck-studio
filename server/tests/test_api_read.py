@@ -72,24 +72,28 @@ async def test_draft_before_and_after(pg_schema, client):
 
 
 async def test_file_route_streams_from_blob_and_refuses_traversal(pg_schema, client):
+    """Paths are relative to the job, exactly as the worker's result lists them (result.slides, result.pptx:
+    "output/slides/slide-01.jpg"), and only files under output/ are served."""
     store = jobs.JobStore()
     job = store.create("brief", {}, "claude-opus-5-5")
     blobs.put_bytes(f"jobs/{job.id}/output/slides/slide-01.jpg", b"fake-jpeg-bytes")
+    blobs.put_bytes(f"jobs/{job.id}/state.tar.gz", b"private work state")
 
     try:
-        ok = await client.get(f"/api/jobs/{job.id}/file/slides/slide-01.jpg")
+        ok = await client.get(f"/api/jobs/{job.id}/file/output/slides/slide-01.jpg")
         assert ok.status_code == 200
         assert ok.content == b"fake-jpeg-bytes"
+        dl = await client.get(f"/api/jobs/{job.id}/file/output/slides/slide-01.jpg?download=1")
+        assert dl.status_code == 200 and 'filename="slide-01.jpg"' in dl.headers["content-disposition"]
 
-        missing = await client.get(f"/api/jobs/{job.id}/file/slides/does-not-exist.jpg")
+        missing = await client.get(f"/api/jobs/{job.id}/file/output/slides/does-not-exist.jpg")
         assert missing.status_code == 404
 
-        # a traversal attempt is confined to jobs/<id>/output/ by safe_rel; it must not reach outside it
-        escape = await client.get(f"/api/jobs/{job.id}/file/..%2f..%2fsecret.txt")
-        assert escape.status_code == 404
-
-        escape2 = await client.get(f"/api/jobs/{job.id}/file/../state.tar.gz")
-        assert escape2.status_code == 404
+        # only output/ is served: not the work state, not a path without the output/ prefix, no traversal
+        for bad in ("state.tar.gz", "../state.tar.gz", "output/../state.tar.gz", "..%2f..%2fsecret.txt",
+                    "slides/slide-01.jpg"):
+            r = await client.get(f"/api/jobs/{job.id}/file/{bad}")
+            assert r.status_code == 404, bad
     finally:
         blobs.delete_prefix(f"jobs/{job.id}/")
         store.delete(job.id)

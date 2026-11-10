@@ -63,13 +63,13 @@ async def test_unknown_job_id_is_404_everywhere(pg_schema, client):
     assert (await client.get("/api/jobs/does-not-exist")).status_code == 404
 
 
-async def test_create_accepts_good_file_and_starts_a_job(pg_schema, upload_ns, client):
-    """A real job starts through HTTP: the row lands in Postgres with the checked upload attached.
+async def test_create_accepts_good_file_and_starts_a_job(pg_schema, upload_ns, client, monkeypatch):
+    """A job is created through HTTP: the row lands in Postgres with the checked upload attached.
 
-    DECK_SANDBOX_SNAPSHOT isn't set yet (the build-plane agent is still building that snapshot), so the
-    sandbox itself can't be launched here; `_launch` catches that and fails the job instead of the request
-    (proved below) - this is NOT the "sandbox exists" proof, see test_sandbox_universal_image_smoke for that.
+    The snapshot is unset on purpose, so no real (paid) build starts here: `_launch` must then fail the job,
+    not the request. A real launch is proven by the end-to-end runs and test_sandbox_universal_image_smoke.
     """
+    monkeypatch.setattr(config, "DECK_SANDBOX_SNAPSHOT", None)
     path = f"{upload_ns}report.txt"
     blobs.put_bytes(path, b"quarterly numbers")
     r = await client.post("/api/jobs", json={"brief": "Summarize this report",
@@ -83,7 +83,7 @@ async def test_create_accepts_good_file_and_starts_a_job(pg_schema, upload_ns, c
     assert job is not None
     assert job.data["uploads"][0]["blob"] == path
     assert job.data["uploads"][0]["name"] == "report.txt"
-    # no DECK_SANDBOX_SNAPSHOT configured in this environment: _launch's failure handling takes over
+    # no snapshot: _launch's failure handling takes over
     assert config.DECK_SANDBOX_SNAPSHOT is None
     assert job.data["status"] == "failed"
     assert "build machine" in job.data["error"]

@@ -296,7 +296,10 @@ def get_draft(jid: str):
 async def get_file(jid: str, path: str, download: int = 0):
     if not await run_in_threadpool(store.exists, jid):
         raise HTTPException(404, "No such job")
-    target = f"jobs/{jid}/output/{safe_rel(path)}"
+    rel = safe_rel(path)  # relative to the job, as result.slides/pptx/pdf list it: "output/slides/slide-01.jpg"
+    if not rel.startswith("output/"):  # only the job's outputs are served, never its work state
+        raise HTTPException(404, "No such file")
+    target = f"jobs/{jid}/{rel}"
     meta = await run_in_threadpool(blobs.head, target)
     if meta is None:
         raise HTTPException(404, "No such file")
