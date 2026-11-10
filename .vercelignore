@@ -1,0 +1,15 @@
+# Never upload local secrets, notes or build junk (the deploy builds each service from source)
+.env*
+PLAN.md
+DECISIONS.md
+PR-*.md
+screenshots
+.playwright-cli
+.verify
+data
+**/.venv
+**/__pycache__
+**/node_modules
+server/tests
+# The api service never reads the skill; the build machine gets it from the sandbox snapshot
+skill

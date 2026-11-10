@@ -1,11 +1,16 @@
-"""Job state and event log, persisted under data/jobs/<id>/ (job.json + events.jsonl)."""
+"""Job state and event log, persisted in Postgres (Neon). See Contracts in PLAN.md for the schema.
+
+Used by both the API (create/get/list/delete, cancel, sweep) and the worker, which runs the pipeline against the
+same `Job` interface: data, id, dir, work, save, emit, update, stage, public, cancel_requested.
+"""
 from __future__ import annotations
 
-import json
 import secrets
-import threading
 import time
 from pathlib import Path
+
+import psycopg
+from psycopg.types.json import Json
 
 from . import config
 
@@ -17,14 +22,53 @@ STAGES = [
     ("review", "Visual review"),
 ]
 
+TERMINAL = ("done", "failed", "cancelled")
+
+SCHEMA_SQL = """
+CREATE TABLE IF NOT EXISTS jobs (
+    id text PRIMARY KEY,
+    root_id text NOT NULL,
+    parent_id text,
+    version int NOT NULL,
+    status text NOT NULL,
+    created_at timestamptz NOT NULL,
+    updated_at timestamptz NOT NULL,
+    heartbeat_at timestamptz,
+    cancel_requested boolean NOT NULL DEFAULT false,
+    next_seq int NOT NULL DEFAULT 0,
+    draft text,
+    data jsonb NOT NULL
+);
+CREATE TABLE IF NOT EXISTS events (
+    job_id text REFERENCES jobs(id) ON DELETE CASCADE,
+    seq int NOT NULL,
+    data jsonb NOT NULL,
+    PRIMARY KEY (job_id, seq)
+);
+ALTER TABLE jobs ADD COLUMN IF NOT EXISTS sandbox_live boolean NOT NULL DEFAULT false;
+"""
+
+_schema_ready: set[str] = set()
+
+
+def _conn() -> psycopg.Connection:
+    """A short-lived connection, closed by the caller's `with` block. One per call: safe under a Vercel
+    Function's concurrent requests, since no state is shared between them."""
+    conn = psycopg.connect(config.DATABASE_URL)
+    url = config.DATABASE_URL
+    if url not in _schema_ready:
+        with conn.cursor() as cur:
+            cur.execute(SCHEMA_SQL)
+        conn.commit()
+        _schema_ready.add(url)
+    return conn
+
 
 class Job:
     def __init__(self, data: dict):
         self.data = data
-        self.lock = threading.Lock()
-        self.cond = threading.Condition(self.lock)
-        self.events: list[dict] = []
-        self.cancel_requested = False
+        self._cr_checked = 0.0
+        self._cr_value = False
 
     @property
     def id(self) -> str:
@@ -39,39 +83,45 @@ class Job:
         return self.dir / "work"
 
     def save(self):
-        tmp = self.dir / "job.json.tmp"
-        tmp.write_text(json.dumps(self.data, indent=1, ensure_ascii=False), encoding="utf-8")
-        tmp.replace(self.dir / "job.json")
-
-    def emit(self, type_: str, **kw):
-        with self.cond:
-            ev = {"seq": len(self.events) + 1, "t": time.time(), "type": type_, **kw}
-            self.events.append(ev)
-            with open(self.dir / "events.jsonl", "a", encoding="utf-8") as f:
-                f.write(json.dumps(ev, ensure_ascii=False) + "\n")
-            self.data["updated_at"] = ev["t"]
-            self.cond.notify_all()
-        return ev
+        """Write the whole `data` dict back, unless the job already reached a terminal status (a terminal
+        status is never replaced, enforced here in the WHERE)."""
+        with _conn() as conn, conn.cursor() as cur:
+            cur.execute(
+                "UPDATE jobs SET data=%s, status=%s, updated_at=now() "
+                "WHERE id=%s AND status NOT IN ('done','failed','cancelled')",
+                (Json(self.data), self.data.get("status"), self.id),
+            )
 
     def update(self, **kw):
-        with self.cond:
-            self.data.update(kw)
-            self.data["updated_at"] = time.time()
-            self.save()
-            self.cond.notify_all()
+        self.data.update(kw)
+        self.data["updated_at"] = time.time()
+        self.save()
+
+    def emit(self, type_: str, **kw) -> dict | None:
+        """Append an event; the seq comes from `next_seq+1 ... returning` in the same transaction as the
+        insert, so concurrent emits never gap or duplicate (Postgres serializes the UPDATE per job row)."""
+        with _conn() as conn, conn.cursor() as cur:
+            cur.execute("UPDATE jobs SET next_seq = next_seq + 1, updated_at = now() WHERE id=%s RETURNING next_seq",
+                       (self.id,))
+            row = cur.fetchone()
+            if row is None:
+                return None
+            seq = row[0]
+            ev = {"seq": seq, "t": time.time(), "type": type_, **kw}
+            cur.execute("INSERT INTO events (job_id, seq, data) VALUES (%s, %s, %s)", (self.id, seq, Json(ev)))
+        return ev
 
     def stage(self, key: str, status: str, summary: str | None = None):
-        with self.cond:
-            for s in self.data["stages"]:
-                if s["key"] == key:
-                    s["status"] = status
-                    if status == "running":
-                        s["started_at"] = time.time()
-                    if status in ("done", "failed", "skipped"):
-                        s["ended_at"] = time.time()
-                    if summary is not None:
-                        s["summary"] = summary
-            self.save()
+        for s in self.data["stages"]:
+            if s["key"] == key:
+                s["status"] = status
+                if status == "running":
+                    s["started_at"] = time.time()
+                if status in ("done", "failed", "skipped"):
+                    s["ended_at"] = time.time()
+                if summary is not None:
+                    s["summary"] = summary
+        self.save()
         self.emit("stage", key=key, status=status, summary=summary)
 
     def public(self) -> dict:
@@ -79,35 +129,21 @@ class Job:
         d.pop("internal", None)
         return d
 
+    @property
+    def cancel_requested(self) -> bool:
+        """Reads the DB, at most once every 3 s (the pipeline polls this often in tight loops)."""
+        now = time.monotonic()
+        if now - self._cr_checked >= 3:
+            with _conn() as conn, conn.cursor() as cur:
+                cur.execute("SELECT cancel_requested FROM jobs WHERE id=%s", (self.id,))
+                row = cur.fetchone()
+            self._cr_value = bool(row[0]) if row else False
+            self._cr_checked = now
+        return self._cr_value
+
 
 class JobStore:
-    def __init__(self):
-        self.jobs: dict[str, Job] = {}
-        self.lock = threading.Lock()
-        self._load()
-
-    def _load(self):
-        for jf in sorted(config.JOBS_DIR.glob("*/job.json")):
-            try:
-                data = json.loads(jf.read_text(encoding="utf-8"))
-            except (OSError, json.JSONDecodeError):
-                continue
-            job = Job(data)
-            ev = jf.parent / "events.jsonl"
-            if ev.exists():
-                for line in ev.read_text(encoding="utf-8").splitlines():
-                    try:
-                        job.events.append(json.loads(line))
-                    except json.JSONDecodeError:
-                        pass
-            if data.get("status") in ("queued", "running"):
-                data["status"] = "failed"
-                data["error"] = "The server restarted while this deck was being built. Run it again."
-                for s in data.get("stages", []):
-                    if s.get("status") == "running":
-                        s["status"] = "failed"
-                job.save()
-            self.jobs[job.id] = job
+    """create/get/list/delete, all in Postgres. No in-memory index: every call is a query."""
 
     def create(self, brief: str, options: dict, model: str, parent: Job | None = None,
                feedback: str | None = None) -> Job:
@@ -124,26 +160,118 @@ class JobStore:
             "stages": [{"key": k, "label": l, "status": "pending", "summary": None} for k, l in STAGES],
             "files": [], "warnings": [], "usage": {}, "result": None,
         }
-        job = Job(data)
-        job.dir.mkdir(parents=True, exist_ok=True)
-        job.work.mkdir(parents=True, exist_ok=True)
-        job.save()
-        with self.lock:
-            self.jobs[jid] = job
-        return job
+        with _conn() as conn, conn.cursor() as cur:
+            cur.execute(
+                "INSERT INTO jobs (id, root_id, parent_id, version, status, created_at, updated_at, data) "
+                "VALUES (%s,%s,%s,%s,%s,to_timestamp(%s),to_timestamp(%s),%s)",
+                (jid, data["root_id"], data["parent_id"], data["version"], data["status"], now, now, Json(data)),
+            )
+        return Job(data)
 
     def get(self, jid: str) -> Job | None:
-        return self.jobs.get(jid)
+        with _conn() as conn, conn.cursor() as cur:
+            cur.execute("SELECT data FROM jobs WHERE id=%s", (jid,))
+            row = cur.fetchone()
+        return Job(row[0]) if row else None
+
+    def exists(self, jid: str) -> bool:
+        with _conn() as conn, conn.cursor() as cur:
+            cur.execute("SELECT 1 FROM jobs WHERE id=%s", (jid,))
+            return cur.fetchone() is not None
 
     def list(self) -> list[dict]:
+        with _conn() as conn, conn.cursor() as cur:
+            cur.execute("SELECT data FROM jobs ORDER BY created_at DESC")
+            rows = cur.fetchall()
         out = []
-        for j in sorted(self.jobs.values(), key=lambda j: j.data["created_at"], reverse=True):
-            d = j.data
+        for (d,) in rows:
             out.append({k: d.get(k) for k in ("id", "created_at", "status", "title", "version", "root_id",
                                               "parent_id", "model")} |
                        {"slides": (d.get("result") or {}).get("slide_count"),
                         "snippet": " ".join((d.get("feedback") or d.get("brief") or "").split())[:140]})
         return out
+
+    def delete(self, jid: str) -> None:
+        with _conn() as conn, conn.cursor() as cur:
+            cur.execute("DELETE FROM jobs WHERE id=%s", (jid,))
+
+    def cancel(self, jid: str) -> bool:
+        """The API decides a cancel: a queued/running job becomes cancelled at once (the WHERE is the CAS), its
+        running stages become skipped, and the caller stops the sandbox. The worker is killed, not asked, and
+        its later writes cannot undo a terminal status (Job.save). True if this call cancelled the job."""
+        job = self.get(jid)
+        if job is None or job.data.get("status") not in ("queued", "running"):
+            return False
+        now = time.time()
+        skipped = [s["key"] for s in job.data["stages"] if s["status"] == "running"]
+        for s in job.data["stages"]:
+            if s["key"] in skipped:
+                s.update(status="skipped", ended_at=now)
+        job.data.update(status="cancelled", error=None, finished_at=now, updated_at=now)
+        with _conn() as conn, conn.cursor() as cur:
+            cur.execute("UPDATE jobs SET data=%s, status='cancelled', cancel_requested=true, updated_at=now() "
+                        "WHERE id=%s AND status IN ('queued','running') RETURNING id", (Json(job.data), jid))
+            if cur.fetchone() is None:
+                return False   # the worker reached a terminal status first
+        for key in skipped:
+            job.emit("stage", key=key, status="skipped", summary=None)
+        job.emit("status", status="cancelled")
+        return True
+
+    def set_sandbox_live(self, jid: str, live: bool) -> None:
+        with _conn() as conn, conn.cursor() as cur:
+            cur.execute("UPDATE jobs SET sandbox_live=%s WHERE id=%s", (live, jid))
+
+    def sandboxes_to_stop(self) -> list[str]:
+        """Jobs that are finished but whose sandbox was never stopped (a sandbox can't end itself)."""
+        with _conn() as conn, conn.cursor() as cur:
+            cur.execute("SELECT id FROM jobs WHERE sandbox_live AND status IN ('done','failed','cancelled')")
+            return [r[0] for r in cur.fetchall()]
+
+    def get_draft(self, jid: str) -> tuple[bool, str | None]:
+        """(found, draft). `found` is False for an unknown job id; `draft` is None when none has landed yet."""
+        with _conn() as conn, conn.cursor() as cur:
+            cur.execute("SELECT draft FROM jobs WHERE id=%s", (jid,))
+            row = cur.fetchone()
+        return (False, None) if row is None else (True, row[0])
+
+    def events_after(self, jid: str, after: int) -> tuple[list[dict], str | None]:
+        """(events with seq>after, current status); status is None for an unknown job id."""
+        with _conn() as conn, conn.cursor() as cur:
+            cur.execute("SELECT status FROM jobs WHERE id=%s", (jid,))
+            row = cur.fetchone()
+            status = row[0] if row else None
+            cur.execute("SELECT data FROM events WHERE job_id=%s AND seq>%s ORDER BY seq", (jid, after))
+            evs = [r[0] for r in cur.fetchall()]
+        return evs, status
+
+    def sweep_stale(self) -> None:
+        """A queued/running job whose heartbeat (or created_at, before the first one) is older than 3 min is
+        marked failed. The WHERE is itself the CAS: a job already terminal is never matched."""
+        with _conn() as conn, conn.cursor() as cur:
+            cur.execute(
+                "UPDATE jobs SET status='failed', updated_at=now(), "
+                "data = jsonb_set(jsonb_set(data, '{status}', '\"failed\"'), '{error}', "
+                "to_jsonb('The build machine stopped. Run it again.'::text)) "
+                "WHERE status IN ('queued','running') "
+                "AND coalesce(heartbeat_at, created_at) < now() - interval '3 minutes'"
+            )
+
+    def all_referenced_uploads(self) -> set[str]:
+        """Every upload blob referenced by ANY job's data.uploads (the uploads sweep's keep-list)."""
+        with _conn() as conn, conn.cursor() as cur:
+            cur.execute(
+                "SELECT DISTINCT elem->>'blob' FROM jobs, jsonb_array_elements(data->'uploads') elem "
+                "WHERE elem->>'blob' IS NOT NULL")
+            return {r[0] for r in cur.fetchall()}
+
+    def upload_blobs_referenced_elsewhere(self, jid: str) -> set[str]:
+        """Every upload blob referenced by some OTHER job's data.uploads (the deletion rule keeps these)."""
+        with _conn() as conn, conn.cursor() as cur:
+            cur.execute(
+                "SELECT DISTINCT elem->>'blob' FROM jobs, jsonb_array_elements(data->'uploads') elem "
+                "WHERE id != %s AND elem->>'blob' IS NOT NULL", (jid,))
+            return {r[0] for r in cur.fetchall()}
 
 
 def _title_guess(brief: str) -> str:

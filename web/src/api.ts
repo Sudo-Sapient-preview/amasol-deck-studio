@@ -1,3 +1,4 @@
+import { upload } from "@vercel/blob/client";
 import type { AppConfig, Job, JobSummary, PickedFile } from "./types";
 
 async function json<T>(res: Response): Promise<T> {
@@ -32,56 +33,68 @@ export interface Created {
   root_id: string;
 }
 
-/** On the Vercel-hosted UI, uploads go straight to the backend: Vercel's /api proxy drops bodies over a few MB.
- * Everywhere else (the backend serving the UI itself) uploads stay same-origin. */
-const UPLOAD_BASE =
-  location.hostname.endsWith(".vercel.app") && import.meta.env.VITE_BACKEND_URL
-    ? String(import.meta.env.VITE_BACKEND_URL).replace(/\/$/, "")
-    : "";
-
-/** POST a multipart form with upload progress (fetch has no upload progress). */
-function postForm(url: string, fd: FormData, onProgress: (fraction: number) => void): Promise<Created> {
-  return new Promise((resolve, reject) => {
-    const xhr = new XMLHttpRequest();
-    xhr.open("POST", UPLOAD_BASE + url);
-    xhr.upload.onprogress = (e) => {
-      if (e.lengthComputable) onProgress(e.loaded / e.total);
-    };
-    xhr.onload = () => {
-      let body: Partial<Created> & { error?: string } = {};
-      try {
-        body = JSON.parse(xhr.responseText);
-      } catch {
-        /* ignore */
-      }
-      if (xhr.status >= 200 && xhr.status < 300 && body.id && body.root_id) resolve(body as Created);
-      else reject(new Error(body.error || `Request failed (${xhr.status})`));
-    };
-    xhr.onerror = () => reject(new Error("Network error while sending"));
-    xhr.send(fd);
-  });
+interface UploadedFile {
+  blob: string;
+  name: string;
+  path: string;
+  role: string;
+  size: number;
 }
 
-function addFiles(fd: FormData, files: PickedFile[]) {
-  for (const f of files) {
-    fd.append("files", f.file, f.file.name);
-    fd.append("paths", f.path);
-    fd.append("roles", f.role);
+/** Upload each picked file straight to Vercel Blob (private store), reporting combined progress across all of them. */
+async function uploadAll(files: PickedFile[], onProgress: (f: number) => void): Promise<UploadedFile[]> {
+  if (!files.length) {
+    onProgress(1);
+    return [];
   }
+  const session = crypto.randomUUID();
+  const total = files.reduce((sum, f) => sum + f.file.size, 0);
+  const loaded = new Array(files.length).fill(0);
+  const report = () => onProgress(total ? loaded.reduce((a, b) => a + b, 0) / total : 1);
+
+  const out: UploadedFile[] = new Array(files.length);
+  let next = 0;
+  // A dropped folder can hold up to 200 files: send 4 at a time, not all at once (Blob API rate limits).
+  const lane = async () => {
+    while (next < files.length) {
+      const i = next++;
+      const f = files[i];
+      const blob = await upload(`uploads/${session}/${i}-${f.file.name}`, f.file, {
+        access: "private",
+        handleUploadUrl: "/api/upload",
+        onUploadProgress: ({ loaded: l }) => {
+          loaded[i] = l;
+          report();
+        },
+      });
+      out[i] = { blob: blob.pathname, name: f.file.name, path: f.path, role: f.role, size: f.file.size };
+    }
+  };
+  await Promise.all(Array.from({ length: Math.min(4, files.length) }, lane));
+  return out;
+}
+
+function postJson(url: string, body: unknown): Promise<Created> {
+  return fetch(url, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(body),
+  }).then((r) => json<Created>(r));
 }
 
 /** First message of a new deck thread. */
-export function startDeck(message: string, files: PickedFile[], onProgress: (f: number) => void) {
-  const fd = new FormData();
-  fd.append("brief", message);
-  addFiles(fd, files);
-  return postForm("/api/jobs", fd, onProgress);
+export async function startDeck(message: string, files: PickedFile[], onProgress: (f: number) => void) {
+  const uploaded = await uploadAll(files, onProgress);
+  return postJson("/api/jobs", { brief: message, files: uploaded });
 }
 
 /** Follow-up message in a thread: builds the next version from a finished one. */
-export function reviseDeck(parentId: string, message: string, files: PickedFile[], onProgress: (f: number) => void) {
-  const fd = new FormData();
-  fd.append("feedback", message);
-  addFiles(fd, files);
-  return postForm(`/api/jobs/${parentId}/refine`, fd, onProgress);
+export async function reviseDeck(
+  parentId: string,
+  message: string,
+  files: PickedFile[],
+  onProgress: (f: number) => void,
+) {
+  const uploaded = await uploadAll(files, onProgress);
+  return postJson(`/api/jobs/${parentId}/refine`, { feedback: message, files: uploaded });
 }

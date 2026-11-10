@@ -1,7 +1,15 @@
 data/
 **/.venv/
 **/__pycache__/
-web/node_modules/
+**/node_modules/
 web/dist/
+*.tsbuildinfo
 *.pyc
-web/.vercel/
+PLAN.md
+DECISIONS.md
+PR-*.md
+.verify/
+.playwright-cli/
+screenshots/
+.vercel
+.env*

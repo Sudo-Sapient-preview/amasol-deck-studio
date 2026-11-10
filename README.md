@@ -8,50 +8,74 @@ paste them. Every deck is built with the `skill/` (amasol-deck) workflow and has
 see it. Each deck is a thread in the sidebar; a follow-up message (with or without new files) builds the next
 version, and every version stays downloadable.
 
-## Run
+## Architecture
 
-```bash
-./start.sh                 # serves UI + API on 0.0.0.0:4300
-PORT=4310 ./start.sh       # another port
+```
+Browser ─┬─ /            web/      Vite React SPA (service "web")
+         ├─ /api/upload  upload/   tiny Node fn with @vercel/blob (service "upload") → browser sends bytes straight to Blob
+         └─ /api/*       server/   FastAPI fn (service "api") ── Postgres: jobs, events, draft
+                                       └─ Sandbox "deck-<job>" from snapshot: python -m app.worker <job>
+                                            runs today's pipeline unchanged on local disk; writes events/draft/status to Postgres, files to Blob
 ```
 
-`start.sh` creates the skill venv (`skill/scripts/setup.sh`) and the server venv if they are missing, and
-rebuilds the web app when its sources changed. The server needs `LLM_PROXY_BASE_URL` and `LLM_PROXY_API_KEY`
-in the environment (the Anthropic-compatible LLM proxy). LibreOffice (`soffice`) and poppler (`pdftotext`,
-`pdftoppm`) must be on PATH.
+The api uses Postgres (Neon) to hold jobs, events and the live draft, and private Blob storage for files. Every
+build gets its own Vercel Sandbox, started from a snapshot, running `python -m app.worker <job-id>`. A Vercel
+Cron calls `/api/internal/sweep` every minute: it stops sandboxes whose job is finished and fails jobs whose
+sandbox has gone quiet (a stale heartbeat).
 
-## Production (always on)
+## Live
 
-The app runs as the systemd user service `amasol-deck` (enabled, restarts on failure, starts at boot because
-the user has linger on) and is public at **https://sudo-cloud.tail6d4c37.ts.net:8443** through Tailscale Funnel.
-There is no login: anyone with the link can open every deck and start builds.
+**https://amasol.jgsaw.ai** (Vercel team "puneet-8736's projects", project `amasol-deck-studio`). The old
+`amasol-deck-studio.vercel.app` link redirects there.
+
+## Run locally
 
 ```bash
-systemctl --user status amasol-deck          # state
-journalctl --user -u amasol-deck -f          # logs
-systemctl --user restart amasol-deck         # after a code change (rebuild web/ first: cd web && npm run build)
-sudo tailscale funnel --https=8443 off       # take the public link down
-journalctl --user -u amasol-deck-watchdog    # watchdog actions
+npx vercel link              # once, to the amasol-deck-studio project
+npx vercel env pull .env.local
+npx vercel dev --listen 0.0.0.0:<port>
 ```
 
-A watchdog timer (`amasol-deck-watchdog.timer`, every 2 minutes, unit files and script in `deploy/`) restarts the
-service if the backend stops answering three times in a row, and re-applies the Funnel rule if the public route
-is down while the backend is fine. It logs only when it acts or when the Vercel front end does not answer.
+`vercel dev` runs all three services (web, upload, api) together. A local run still uses the real cloud Neon
+database, Blob store and Sandbox — there is no local-only mode. Vercel Crons do not run under `vercel dev`, so
+`/api/internal/sweep` must be called by hand (or hit the deployed URL) to stop sandboxes or fail stale jobs
+while testing locally.
 
-### Vercel front end
+## Deploy
 
-The UI is also deployed on Vercel at **https://amasol-deck-studio.vercel.app** (project `amasol-deck-studio`,
-team `janiths-projects`, config in `web/vercel.json`). Vercel serves only the static page: `/api/*` is
-forwarded to the backend above, so the backend on this server must stay up. Vercel's proxy drops request
-bodies over a few MB, so on `*.vercel.app` the page sends uploads straight to the backend URL in
-`web/.env.production`, and the backend allows that origin through CORS (`server/app/main.py`).
-Redeploy after UI changes: `cd web && npx vercel deploy --prod`.
+When `server/` or `skill/` code changes, rebuild the sandbox snapshot the worker runs from:
 
-The service reads `LLM_PROXY_BASE_URL` and `LLM_PROXY_API_KEY` from `~/.config/amasol-deck/env` (mode 600).
-A restart stops builds that are running; check `/api/jobs` first.
+```bash
+python server/sandbox/image.py code --base <base-snapshot-id>   # current code on top of the base image
+```
 
-Optional settings: `DECK_MODEL` (default `claude-opus-5-5`), `DECK_MAX_JOBS` (parallel builds, default 3),
-`DECK_DATA_DIR` (default `data/`).
+Only rebuild the base image (`python server/sandbox/image.py base`) when apt packages or `requirements.txt`
+change — it reinstalls LibreOffice, poppler and both venvs from scratch.
+
+Then point production at the new snapshot and deploy:
+
+```bash
+npx vercel env add DECK_SANDBOX_SNAPSHOT production   # paste the new snapshot id, or `vercel env rm` + `add` to replace it
+npx vercel deploy --prod
+```
+
+## Env vars
+
+- `DATABASE_URL` — Neon Postgres connection string
+- `BLOB_READ_WRITE_TOKEN` — Vercel Blob store
+- `LLM_PROXY_BASE_URL`, `LLM_PROXY_API_KEY` — the Anthropic-compatible LLM proxy
+- `DECK_SANDBOX_SNAPSHOT` — snapshot id the API boots each build's sandbox from
+- `CRON_SECRET` — checked on `/api/internal/sweep` so only the Vercel Cron can call it
+- `DECK_MODEL` (optional) — default model, `claude-opus-5-5` if unset
+
+## Tests
+
+```bash
+cd server && .venv/bin/python -m pytest -q tests/
+```
+
+Tests run against the real Neon database (in a throwaway schema) and the real Blob store (under a run-unique
+prefix), not mocks.
 
 ## How a deck is built
 
@@ -76,8 +100,11 @@ the source "Message"), so pasted notes are cited like any uploaded file.
 
 ```
 skill/            the amasol-deck skill (read-only for the app)
-server/app/       FastAPI app: ingest, tools, agent loop, pipeline, report, job store
+server/app/       FastAPI app: ingest, tools, agent loop, pipeline, job store, launcher, worker, blobs
 server/runner/    build_spec.py: JSON spec -> matchbuild.build(), runs in the skill venv
+server/sandbox/   image.py: builds the Vercel Sandbox snapshots the worker runs from
+server/tests/     pytest against the real Neon DB and Blob store
+upload/           tiny Node service: client-upload tokens for @vercel/blob
 web/              Vite + React + Tailwind single-page UI
-data/jobs/<id>/   job.json, events.jsonl, work/ (draft, plan, spec, renders), output/ (pptx, pdf, slides)
+vercel.json       services web/upload/api, rewrites, the sweep cron
 ```

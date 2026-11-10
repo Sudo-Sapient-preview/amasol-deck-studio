@@ -8,7 +8,13 @@ SKILL_PY = Path(os.environ.get("DECK_SKILL_PYTHON", SKILL_DIR / ".venv" / "bin" 
 RUNNER_DIR = ROOT / "server" / "runner"
 DATA_DIR = Path(os.environ.get("DECK_DATA_DIR", ROOT / "data")).resolve()
 JOBS_DIR = DATA_DIR / "jobs"
-WEB_DIST = ROOT / "web" / "dist"
+
+# Postgres (Neon; psycopg 3). See Contracts in PLAN.md for the schema.
+DATABASE_URL = os.environ.get("DATABASE_URL", "")
+
+# Where the worker's code lives inside a sandbox snapshot, and which snapshot to boot it from.
+SANDBOX_REPO = Path(os.environ.get("SANDBOX_REPO", "/vercel/sandbox/app"))
+DECK_SANDBOX_SNAPSHOT = os.environ.get("DECK_SANDBOX_SNAPSHOT")
 
 # LLM proxy (Anthropic Messages API compatible)
 LLM_BASE_URL = os.environ.get("LLM_PROXY_BASE_URL") or os.environ.get("ANTHROPIC_BASE_URL") or "https://llm-proxy.sudosapient.dev"
@@ -19,7 +25,6 @@ MODELS = [
     {"id": "claude-sonnet-5-5", "label": "Claude Sonnet 5.5", "hint": "Faster"},
 ]
 DEFAULT_MODEL = os.environ.get("DECK_MODEL", "claude-opus-5-5")
-MAX_CONCURRENT_JOBS = int(os.environ.get("DECK_MAX_JOBS", "3"))
 
 # Upload limits
 MAX_UPLOAD_BYTES = 200 * 1024 * 1024        # whole request
@@ -30,4 +35,7 @@ MAX_ZIP_TOTAL = 300 * 1024 * 1024
 INLINE_SOURCE_CHARS = 120_000               # sources up to this size go straight into the prompt
 MAX_REFERENCE_IMAGES = 8                    # design-reference images shown to the model
 
-JOBS_DIR.mkdir(parents=True, exist_ok=True)
+try:  # only the sandboxed worker writes here; the API's filesystem may be read-only
+    JOBS_DIR.mkdir(parents=True, exist_ok=True)
+except OSError:
+    pass
