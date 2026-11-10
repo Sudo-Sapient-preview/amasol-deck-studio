@@ -57,9 +57,10 @@ def _first_line(out: str, *keys: str) -> str:
 
 
 class Runner:
-    def __init__(self, job: Job):
+    def __init__(self, job: Job, on_done: callable = None):
         self.job = job
         self.work = job.work
+        self.on_done = on_done   # called (no args) once the deck is built, before the terminal status is written
         self.usage = Usage()
         self.ws = Workspace(self.work)
         self.summaries: dict[str, str] = {}
@@ -513,6 +514,8 @@ class Runner:
             result = self.finalize()
             result["duration"] = round(time.time() - t0)
             result["usage"] = self.usage.as_dict()
+            if self.on_done:
+                self.on_done()   # uploads outputs + work state to Blob before "done" can be seen anywhere
             job.update(status="done", result=result, usage=self.usage.as_dict(), finished_at=time.time())
             job.emit("status", status="done")
             self.log("ok", f"Deck ready: {result['slide_count']} slides")
@@ -524,7 +527,8 @@ class Runner:
             msg = getattr(e, "message", None) or str(e)
             self._fail_running("failed", f"The model call failed: {msg}")
         except Exception as e:  # noqa: BLE001
-            (job.dir / "error.txt").write_text(traceback.format_exc(), encoding="utf-8")
+            # the sandbox's local disk does not outlive the job, so the traceback has to live in data itself
+            job.update(internal={**(job.data.get("internal") or {}), "traceback": traceback.format_exc()})
             self._fail_running("failed", f"Unexpected error: {type(e).__name__}: {e}")
 
     def _fail_running(self, status: str, msg: str):

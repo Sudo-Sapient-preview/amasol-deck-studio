@@ -23,6 +23,7 @@
       }
     }
   },
+  "crons": [{ "path": "/api/internal/sweep", "schedule": "* * * * *" }],
   "rewrites": [
     { "source": "/api/upload", "destination": { "service": "upload" } },
     { "source": "/api/(.*)", "destination": { "service": "api" } },

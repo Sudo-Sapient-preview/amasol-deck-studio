@@ -7,3 +7,5 @@ openpyxl>=3.1
 python-pptx==1.0.2
 pypdf>=6.0
 pillow>=11
+psycopg[binary]==3.3.8
+vercel==0.12.2
