@@ -1,8 +1,0 @@
-[Unit]
-Description=Health check for amasol Deck Studio (backend, public link, Vercel)
-After=network-online.target amasol-deck.service
-
-[Service]
-Type=oneshot
-Environment=PATH=/usr/local/bin:/usr/bin:/bin
-ExecStart=/home/janith/.t3/projects/amasol-deck/deploy/watchdog.sh
