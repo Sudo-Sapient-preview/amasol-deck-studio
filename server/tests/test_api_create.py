@@ -24,6 +24,18 @@ async def test_create_rejects_missing_blob(pg_schema, client):
     assert r.status_code == 400
 
 
+async def test_create_rejects_blob_path_with_dot_segments(pg_schema, client):
+    """A blob path with '..' or '.' segments must be a 400, not a 500 from vercel's BlobError."""
+    r = await client.post("/api/jobs", json={"brief": "hi",
+        "files": [{"blob": "uploads/x/../../jobs/abc/output/a.txt", "name": "a.pdf", "path": "a.pdf",
+                   "role": "auto", "size": 1}]})
+    assert r.status_code == 400
+
+    r2 = await client.post("/api/jobs", json={"brief": "hi",
+        "files": [{"blob": "uploads/./x.pdf", "name": "a.pdf", "path": "a.pdf", "role": "auto", "size": 1}]})
+    assert r2.status_code == 400
+
+
 async def test_create_rejects_oversize_file(pg_schema, upload_ns, client, monkeypatch):
     path = f"{upload_ns}big.bin"
     blobs.put_bytes(path, b"0" * 1024)

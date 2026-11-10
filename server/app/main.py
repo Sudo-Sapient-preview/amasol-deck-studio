@@ -113,7 +113,7 @@ def _check_files(raw_files) -> list[dict]:
             raise HTTPException(400, "Each file must be an object")
         blob_path = str(f.get("blob") or "")
         name = str(f.get("name") or "")
-        if not blob_path.startswith("uploads/"):
+        if not blob_path.startswith("uploads/") or any(p in ("", ".", "..") for p in blob_path.split("/")):
             raise HTTPException(400, f"Bad upload reference: {blob_path!r}")
         meta = blobs.head(blob_path)
         if meta is None:
