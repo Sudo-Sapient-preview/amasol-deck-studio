@@ -69,9 +69,9 @@ def head(pathname: str) -> HeadResult | None:
 
 
 def delete(pathnames: str | list[str]) -> None:
-    if not pathnames:
-        return
-    blob.delete_blob(pathnames)
+    names = [pathnames] if isinstance(pathnames, str) else list(pathnames)
+    for i in range(0, len(names), 1000):  # delete_blob takes at most 1000 pathnames per call
+        blob.delete_blob(names[i:i + 1000])
 
 
 def list_prefix(prefix: str):
@@ -81,6 +81,4 @@ def list_prefix(prefix: str):
 
 def delete_prefix(prefix: str) -> None:
     """Delete every blob whose pathname starts with `prefix`."""
-    names = [item.pathname for item in blob.query_blobs(prefix=prefix)]
-    for i in range(0, len(names), 1000):  # delete_blob takes at most 1000 pathnames per call
-        delete(names[i:i + 1000])
+    delete([item.pathname for item in blob.query_blobs(prefix=prefix)])
