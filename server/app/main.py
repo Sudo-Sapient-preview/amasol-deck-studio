@@ -337,6 +337,30 @@ async def sweep(request: Request):
     return {"stopped": len(ids)}
 
 
+def sweep_unreferenced_uploads(prefix: str, max_age_seconds: int) -> dict:
+    """Deletes every blob under `prefix` older than `max_age_seconds` that no job's data.uploads
+    references (a closed-tab or bare token-route upload otherwise lives in Blob forever).
+
+    Blobs are listed FIRST, the referenced set is read SECOND: a job created in between still shows up
+    as referenced, so its (now old) upload is never swept. If the referenced-set read fails, the error
+    propagates before any delete runs - a DB error must never be treated as "nothing is referenced"."""
+    cutoff = time.time() - max_age_seconds
+    candidates = [b.pathname for b in blobs.list_prefix(prefix) if b.uploaded_at.timestamp() < cutoff]
+    referenced = store.all_referenced_uploads()
+    orphans = [p for p in candidates if p not in referenced]
+    if orphans:
+        blobs.delete(orphans)
+    return {"deleted": len(orphans)}
+
+
+@app.get("/api/internal/sweep-uploads")
+async def sweep_uploads(request: Request):
+    """Vercel Cron, hourly (vercel.json): deletes orphaned browser uploads (see sweep_unreferenced_uploads)."""
+    if not _cron_ok(request):
+        raise HTTPException(401, "Unauthorized")
+    return await run_in_threadpool(sweep_unreferenced_uploads, "uploads/", 3600)
+
+
 @app.exception_handler(HTTPException)
 async def http_error(_, exc: HTTPException):
     return JSONResponse({"error": exc.detail}, status_code=exc.status_code)

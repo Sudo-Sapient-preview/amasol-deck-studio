@@ -155,6 +155,45 @@ async def test_sweep_stops_sandboxes_of_finished_jobs_only(pg_schema, client, mo
     assert r.json() == {"stopped": 0}                     # idempotent: a second run finds nothing
 
 
+async def test_sweep_uploads_deletes_only_unreferenced_old_blobs(pg_schema, upload_ns):
+    """The uploads sweep (hourly cron) deletes an orphaned upload blob but keeps one a job still
+    references. Only ever called here with this test's own run-unique prefix (upload_ns), never the
+    real 'uploads/' prefix: that prefix is the production Blob store, shared with real users."""
+    from app import main
+    store = jobs.JobStore()
+    referenced = f"{upload_ns}referenced.txt"
+    orphan = f"{upload_ns}orphan.txt"
+    blobs.put_bytes(referenced, b"keep")
+    blobs.put_bytes(orphan, b"gone")
+    job = store.create("brief", {}, "claude-opus-5-5")
+    job.update(uploads=[{"name": "referenced.txt", "saved": "inputs/referenced.txt", "role": "content",
+                         "blob": referenced, "size": 4}])
+
+    main.sweep_unreferenced_uploads(upload_ns, 0)
+
+    assert blobs.head(referenced) is not None
+    assert blobs.head(orphan) is None
+
+
+async def test_sweep_uploads_keeps_blobs_newer_than_max_age(pg_schema, upload_ns):
+    from app import main
+    path = f"{upload_ns}fresh.txt"
+    blobs.put_bytes(path, b"fresh, and otherwise unreferenced")
+
+    main.sweep_unreferenced_uploads(upload_ns, 3600)
+
+    assert blobs.head(path) is not None
+
+
+async def test_sweep_uploads_route_needs_the_cron_secret(pg_schema, client, monkeypatch):
+    """Auth only: never call this route with the right secret in a test, since the route always sweeps
+    the real 'uploads/' prefix."""
+    monkeypatch.setenv("CRON_SECRET", "s3cret-for-test")
+    assert (await client.get("/api/internal/sweep-uploads")).status_code == 401
+    assert (await client.get("/api/internal/sweep-uploads",
+                             headers={"authorization": "Bearer wrong"})).status_code == 401
+
+
 async def test_delete_removes_row_and_output_blobs_but_keeps_shared_uploads(pg_schema, blob_ns, client):
     store = jobs.JobStore()
     shared = f"{blob_ns}uploads/shared.txt"

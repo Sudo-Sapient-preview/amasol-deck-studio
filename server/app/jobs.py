@@ -257,6 +257,14 @@ class JobStore:
                 "AND coalesce(heartbeat_at, created_at) < now() - interval '3 minutes'"
             )
 
+    def all_referenced_uploads(self) -> set[str]:
+        """Every upload blob referenced by ANY job's data.uploads (the uploads sweep's keep-list)."""
+        with _conn() as conn, conn.cursor() as cur:
+            cur.execute(
+                "SELECT DISTINCT elem->>'blob' FROM jobs, jsonb_array_elements(data->'uploads') elem "
+                "WHERE elem->>'blob' IS NOT NULL")
+            return {r[0] for r in cur.fetchall()}
+
     def upload_blobs_referenced_elsewhere(self, jid: str) -> set[str]:
         """Every upload blob referenced by some OTHER job's data.uploads (the deletion rule keeps these)."""
         with _conn() as conn, conn.cursor() as cur:

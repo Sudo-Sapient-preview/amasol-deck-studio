@@ -74,6 +74,11 @@ def delete(pathnames: str | list[str]) -> None:
     blob.delete_blob(pathnames)
 
 
+def list_prefix(prefix: str):
+    """Every blob under `prefix` (pathname, size, uploaded_at), paginated transparently by the SDK."""
+    return blob.query_blobs(prefix=prefix)
+
+
 def delete_prefix(prefix: str) -> None:
     """Delete every blob whose pathname starts with `prefix`."""
     names = [item.pathname for item in blob.query_blobs(prefix=prefix)]
