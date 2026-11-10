@@ -22,6 +22,7 @@ ROOT = Path(__file__).resolve().parents[2]
 REPO_REMOTE = "/vercel/sandbox/app"   # must match config.SANDBOX_REPO
 EXCLUDE_PARTS = {".venv", "__pycache__", "data"}
 APT_PACKAGES = ["libreoffice", "poppler-utils", "fontconfig"]
+NEVER = 0   # snapshots expire 30 days after last use by default; the live app must never lose its image
 
 
 def _log(msg: str) -> None:
@@ -82,7 +83,7 @@ def build_base() -> str:
         _run(box, f"{REPO_REMOTE}/server/.venv/bin/python",
              ["-m", "pip", "install", "-q", "-r", f"{REPO_REMOTE}/server/requirements.txt"], kill_after=600)
         _run(box, "bash", [f"{REPO_REMOTE}/skill/scripts/setup.sh"], kill_after=600)
-        snap = box.snapshot()
+        snap = box.snapshot(expiration=NEVER)
         _log(f"base snapshot: {snap.id}")
         return snap.id
     finally:
@@ -94,7 +95,7 @@ def build_code(base_snapshot: str) -> str:
                                   source=SnapshotSource(snapshot_id=base_snapshot), execution_time_limit=900)
     try:
         _upload(box, _tracked_files("server", "skill"), REPO_REMOTE)
-        snap = box.snapshot()
+        snap = box.snapshot(expiration=NEVER)
         _log(f"code snapshot: {snap.id}")
         return snap.id
     finally:

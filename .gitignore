@@ -3,11 +3,8 @@ data/
 **/__pycache__/
 **/node_modules/
 web/dist/
+*.tsbuildinfo
 *.pyc
-web/.vercel/
-.vercel/
-.env*.local
-.env.verify
 PLAN.md
 DECISIONS.md
 PR-*.md
