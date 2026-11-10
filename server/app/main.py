@@ -4,6 +4,7 @@ pipeline itself, so there are no background threads here beyond FastAPI's own pe
 from __future__ import annotations
 
 import asyncio
+import hmac
 import json
 import os
 import time
@@ -314,12 +315,20 @@ async def get_file(jid: str, path: str, download: int = 0):
     return StreamingResponse(body(), media_type=meta.content_type or "application/octet-stream", headers=headers)
 
 
+def _cron_ok(request: Request) -> bool:
+    """Both cron routes share this: no CRON_SECRET set is always a 401, and the header compare is
+    constant-time (hmac.compare_digest) so a wrong guess can't be timed byte by byte."""
+    secret = os.environ.get("CRON_SECRET")
+    if not secret:
+        return False
+    return hmac.compare_digest(request.headers.get("authorization") or "", f"Bearer {secret}")
+
+
 @app.get("/api/internal/sweep")
 async def sweep(request: Request):
     """Vercel Cron, every minute (vercel.json). A sandbox can't end itself, so this is what stops it: jobs whose
     heartbeat went quiet become failed, then every finished job's sandbox is stopped. Safe to run twice."""
-    secret = os.environ.get("CRON_SECRET")
-    if not secret or request.headers.get("authorization") != f"Bearer {secret}":
+    if not _cron_ok(request):
         raise HTTPException(401, "Unauthorized")
     await run_in_threadpool(store.sweep_stale)
     ids = await run_in_threadpool(store.sandboxes_to_stop)
